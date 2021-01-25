@@ -1,18 +1,24 @@
 public class Tile {
 
-    private int tileNb;
-    public int moveToTile;
-    private boolean isAction;
+    private int tileNb; // tile on grid
+    public int endTile; // tile to move to if ladder or snake 
+    private boolean isAction; // normal tile or snake/ladder tile
 
-    // if were doing tile individually --> change such that can set all snakes at once and all ladders at once
-    public Tile(int tileNb, int moveToTile){
+    // this would work if were settings tile individually --> change such that can set all snakes at once and all ladders at once
+    public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
-        this.moveToTile = moveToTile;
-        if (tileNb == moveToTile){
+        this.endTile = endTile;
+        if (tileNb == endTile){
             this.isAction = false; 
         } else {
             this.isAction = true;
         }
+    }
+
+    public Tile(int tileNb){
+        this.isAction = false;
+        this.tileNb = tileNb;
+        this.endTile = tileNb;
     }
 
     public boolean getIsAction(){
@@ -27,13 +33,21 @@ public class Tile {
         return tileNb;
     }
 
-    public int getMoveToTile(){
-        return moveToTile;
+    public void setTileBb( int tileNb){
+        this.tileNb = tileNb;
+    }
+
+    public int getEndTile(){
+        return endTile;
+    }
+
+    public void setEndTile(int endTile){
+        this.endTile = endTile;
     }
 
     public boolean checkForSnake(){
         boolean snake = false;
-        if (moveToTile < tileNb){
+        if (endTile < tileNb){
             snake = true;
             // Display message
         }
@@ -42,7 +56,7 @@ public class Tile {
 
     public boolean checkForLadder(){
         boolean ladder = false;
-        if (moveToTile > tileNb){
+        if (endTile > tileNb){
             ladder = true;
             // Display message
         }
