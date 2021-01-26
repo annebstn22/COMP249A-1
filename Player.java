@@ -22,6 +22,9 @@ public class Player {
 			System.out.println(players[i]);
 		}
 		
+		int[][] checkArr = new int[6][5];
+
+
 		for (int i=0; i< players.length; i++) {
 			for (int j=i+1; j<players.length; j++) {
 				if (players[i].getDiceValue() == players[j].getDiceValue()) {
