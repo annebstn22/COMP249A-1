@@ -38,6 +38,15 @@ public class LadderAndSnake{
             //System.out.print(ladderAndSnakeGrid[i].getTileNb()); //to check functioning well
         }
 
+        for (int i=0; i<SNAKE_AND_LADDERS.length; i++){
+            ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setEndTile(SNAKE_AND_LADDERS[i][1]);
+            if (ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].getTileNb() < ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].getEndTile()){
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setIsLadder(true);
+            } else {
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setIsSnake(true);
+            }
+        }
+
         //loop to set snakes
 
         //loop to set ladders
