@@ -2,10 +2,14 @@ public class Tile {
 
     private int tileNb; // tile on grid
     public int endTile; // tile to move to if ladder or snake 
-    private boolean isAction; // normal tile or snake/ladder tile
+    private boolean isAction; // normal tile or snake/ladder tile --> automatically set to false?
+    private boolean isSnake;
+    private boolean isLadder;
+
+    //CONSTRUCTORS
 
     // this would work if were settings tile individually --> change such that can set all snakes at once and all ladders at once
-    public Tile(int tileNb, int endTile){
+    /*public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
         this.endTile = endTile;
         if (tileNb == endTile){
@@ -13,6 +17,11 @@ public class Tile {
         } else {
             this.isAction = true;
         }
+    }*/
+    public Tile(){
+        this.isAction = false;
+        this.isLadder = false;
+        this.isSnake = false;
     }
 
     public Tile(int tileNb){
@@ -21,6 +30,7 @@ public class Tile {
         this.endTile = tileNb;
     }
 
+    //Getters and Setters
     public boolean getIsAction(){
         return isAction;
     }
@@ -33,7 +43,7 @@ public class Tile {
         return tileNb;
     }
 
-    public void setTileBb( int tileNb){
+    public void setTileNb( int tileNb){
         this.tileNb = tileNb;
     }
 
@@ -45,7 +55,9 @@ public class Tile {
         this.endTile = endTile;
     }
 
-    public boolean checkForSnake(){
+    //Other Methods 
+    // could omit for variables isSnake and isLadder above;
+    /*public boolean checkForSnake(){
         boolean snake = false;
         if (endTile < tileNb){
             snake = true;
@@ -61,7 +73,7 @@ public class Tile {
             // Display message
         }
         return ladder;
-    }
+    }*/
 
 
 
