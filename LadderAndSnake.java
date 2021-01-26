@@ -18,9 +18,22 @@ public class LadderAndSnake{
     private final static String ladderIcon = "L";
 
 
-    public LadderAndSnake(int nbPlayers) {
+    public LadderAndSnake(int nbPlayers, Player[] players) {
         this.nbPlayers = nbPlayers;
+        this.players = new Player[players.length];
+        for (int i = 0; i < players.length; i++){
+            this.players[i] = new Player(players[i].getPlayerName());
+        }
         // add players to array "players"
+    }
+
+    public int getEndPosition(int flipDice, int playerArrayPos){
+        if (players[playerArrayPos].getBoardPos() + flipDice <= 100){
+            return players[playerArrayPos].getBoardPos() + flipDice;
+        }else {
+
+            return (100 - (flipDice - (100-players[playerArrayPos].getBoardPos())));
+        }
     }
 
     //random integer between 1 and 6
@@ -80,16 +93,34 @@ public class LadderAndSnake{
 
     }
 
-//hello
+    
 
     public void play(){
 
-        playerOrder();
+        // playerOrder(); -- to be added later
         buildGrid();
+        boolean winner = false;
         do{
             for(int i=0;i<players.length; i++){
                 int diceRoll = flipDice();
-                //getEndPosition
+                int landingTile = getEndPosition(diceRoll, i);
+                int endTile = ladderAndSnakeGrid[landingTile].getEndTile();
+                System.out.println("Board Position before: " + players[i].getBoardPos());
+                players[i].setBoardPos(endTile);
+                System.out.println("Board Position after: " + players[i].getBoardPos());
+                if (endTile == 100){
+                    System.out.println("You won!");
+                    winner = true;
+                }
+                if (ladderAndSnakeGrid[landingTile].getIsSnake()){
+                    System.out.println("Uh Oh Snake!");
+                } else if (ladderAndSnakeGrid[landingTile].getIsLadder()){
+                    System.out.println("Youpi Ladder");
+                }
+                System.out.println("You have moved to position: " + endTile);
+                printGrid();
+                
+
                 //change current position to endTile of tile it moved too.
                 //Check if winner
                     //If Yes:
