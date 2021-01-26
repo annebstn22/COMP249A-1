@@ -2,7 +2,7 @@ public class Tile {
 
     private int tileNb; // tile on grid
     public int endTile; // tile to move to if ladder or snake 
-    private boolean isAction; // normal tile or snake/ladder tile --> automatically set to false?
+    private boolean isActionTile; // normal tile or snake/ladder tile --> automatically set to false?
     private boolean isSnake;
     private boolean isLadder;
 
@@ -19,24 +19,24 @@ public class Tile {
         }
     }*/
     public Tile(){
-        this.isAction = false;
+        this.isActionTile = false;
         this.isLadder = false;
         this.isSnake = false;
     }
 
     public Tile(int tileNb){
-        this.isAction = false;
+        this.isActionTile = false;
         this.tileNb = tileNb;
         this.endTile = tileNb;
     }
 
     //Getters and Setters
     public boolean getIsAction(){
-        return isAction;
+        return isActionTile;
     }
 
     public void setIsAction(boolean isAction){
-        this.isAction = isAction;
+        this.isActionTile = isAction;
     }
 
     public int getTileNb(){
