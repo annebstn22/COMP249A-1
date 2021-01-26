@@ -33,9 +33,8 @@ public class LadderAndSnake{
         //loop to create grid of tiles numbered 1 - 100
 
         for (int i=0; i<NB_TILES; i++){
-            ladderAndSnakeGrid[i].setTileNb(i+1);
-            ladderAndSnakeGrid[i].setEndTile(i+1);
-            System.out.print(ladderAndSnakeGrid[i].getTileNb()); //to check functioning well
+            ladderAndSnakeGrid[i] = new Tile(i+1, i+1);
+            //System.out.print(ladderAndSnakeGrid[i].getTileNb()); //to check functioning well
         }
 
         //loop to set snakes
@@ -44,9 +43,29 @@ public class LadderAndSnake{
     }
 
     public void printGrid(){
-        //zig zag fun times
         //--> figure out how to indicate if snake / ladder -- text? ladder --> 29 / snake --> 10
+        boolean printRowLeft = true;
+        for (int i = BOARD_SIZE - 1; i>=0; i--){
+            if(printRowLeft){
+                for (int j = 0; j<BOARD_SIZE; j++){
+                    System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+" } ");
+                }
+                printRowLeft = false;
+            }else{
+                for (int j = BOARD_SIZE - 1; j >=0; j--){
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
+                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+"  } ");
+                    }else{
+                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+" } ");
+                    }
+                    printRowLeft = true;
+                }
+            }
+            System.out.println();
+        }
+
     }
+
 
 
     public void play(){
