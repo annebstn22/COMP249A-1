@@ -44,9 +44,11 @@ public class PlayLadderAndSnake {
 
         }while(!isValidAttempt);
 
-        if (isValidAttempt){
-            LadderAndSnake game = new LadderAndSnake(nbPlayers);
-        }
+        LadderAndSnake game = new LadderAndSnake(nbPlayers);
+        
+
+        game.buildGrid();
+        game.printGrid();
 
         //game.play();
         
