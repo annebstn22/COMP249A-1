@@ -25,6 +25,10 @@ public class LadderAndSnake{
         return (int) ((Math.random() * NB_DICE_FACES + 1));
     }
 
+    public void playerOrder(){
+        //figure out order of player
+    }
+
     public void buildGrid(){
         //loop to create grid of tiles numbered 1 - 100
 
@@ -38,16 +42,18 @@ public class LadderAndSnake{
         //loop to set ladders
     }
 
-    public void playerOrder(){
-        //figure out order of player
+    public void printGrid(){
+        //zig zag fun times
+        //--> figure out how to indicate if snake / ladder -- text? ladder --> 29 / snake --> 10
     }
+
 
     public void play(){
 
         playerOrder();
         buildGrid();
         do{
-            for(i=0;i<players.length; i++){
+            for(int i=0;i<players.length; i++){
                 int diceRoll = flipDice();
                 //getEndPosition
                 //change current position to endTile of tile it moved too.
@@ -57,7 +63,7 @@ public class LadderAndSnake{
                     //break
                 //checkIfAction --> actually no need can just change current position to endTile
                     //If action -- display specific message?
-                //Display Grid
+                printGrid();
             }
         }while(!winner);
 
