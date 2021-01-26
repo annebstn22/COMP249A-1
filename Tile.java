@@ -9,15 +9,15 @@ public class Tile {
     //CONSTRUCTORS
 
     // this would work if were settings tile individually --> change such that can set all snakes at once and all ladders at once
-    /*public Tile(int tileNb, int endTile){
+    public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
         this.endTile = endTile;
         if (tileNb == endTile){
-            this.isAction = false; 
+            this.isActionTile = false; 
         } else {
-            this.isAction = true;
+            this.isActionTile = true;
         }
-    }*/
+    }
     public Tile(){
         this.isActionTile = false;
         this.isLadder = false;
