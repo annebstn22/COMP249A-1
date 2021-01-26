@@ -1,4 +1,4 @@
-import jdk.tools.jimage.resources.jimage;
+
 
 public class Player {
 	private int diceValue;
