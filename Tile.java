@@ -33,11 +33,11 @@ public class Tile {
     }
 
     //Getters and Setters
-    public boolean getIsAction(){
+    public boolean getIsActionTile(){
         return isActionTile;
     }
 
-    public void setIsAction(boolean isAction){
+    public void setIsActionTile(boolean isAction){
         this.isActionTile = isAction;
     }
 
@@ -80,28 +80,5 @@ public class Tile {
     public void setTileType(String tileType){
         this.tileType = tileType;
     }
-
-    //Other Methods 
-    // could omit for variables isSnake and isLadder above;
-    /*public boolean checkForSnake(){
-        boolean snake = false;
-        if (endTile < tileNb){
-            snake = true;
-            // Display message
-        }
-        return snake;
-    }
-
-    public boolean checkForLadder(){
-        boolean ladder = false;
-        if (endTile > tileNb){
-            ladder = true;
-            // Display message
-        }
-        return ladder;
-    }*/
-
-
-
-    
+  
 }

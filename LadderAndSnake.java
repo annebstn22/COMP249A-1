@@ -55,7 +55,7 @@ public class LadderAndSnake{
 
         for (int i=0; i<SNAKE_AND_LADDERS.length; i++){
             ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setEndTile(SNAKE_AND_LADDERS[i][1]);
-            ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsAction(true);
+            ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsActionTile(true);
             if (SNAKE_AND_LADDERS[i][0] < SNAKE_AND_LADDERS[i][1]){
                 ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsLadder(true);
                 ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType("L");
@@ -103,36 +103,35 @@ public class LadderAndSnake{
         boolean winner = false;
         do{
             for(int i=0;i<players.length; i++){
+
+                //Variables
                 int diceRoll = flipDice();
                 int landingTile = getEndPosition(diceRoll, i) - 1;
                 int endTile = ladderAndSnakeGrid[landingTile].getEndTile();
-                System.out.println("Board Position before: " + players[i].getBoardPos());
+                String playerName = players[i].getPlayerName();
+                int playerBoardPos = players[i].getBoardPos();
+
+                System.out.println("Board Position before: " + playerBoardPos );
+
                 players[i].setBoardPos(endTile); // Change player position 
-                System.out.println("Board Position after: " + players[i].getBoardPos());
-                if (endTile == 100){
-                    System.out.println( players[i].getPlayerName() + "won!");
+
+                System.out.println("Board Position after: " + playerBoardPos );
+                
+                if (endTile == 100){ //Check for winner
+                    System.out.println(playerName + " won!");
                     winner = true;
-                } else if (ladderAndSnakeGrid[landingTile].getIsAction()){
+                } else if (ladderAndSnakeGrid[landingTile].getIsActionTile()){ //Check for Action Tile
                     if (ladderAndSnakeGrid[landingTile].getIsSnake()){
                         System.out.println("Uh Oh Snake!");
                     } else if (ladderAndSnakeGrid[landingTile].getIsLadder()){
                         System.out.println("Youpi Ladder!!!");
                     }
                 } 
-                System.out.println(players[i].getPlayerName() + " rolled a " + diceRoll + ".");
-                System.out.println("You have moved to position: " + endTile + ".");
+                System.out.println(playerName + " rolled a " + diceRoll + ".");
+                System.out.println(playerName + " has moved to position: " + endTile + ".");
                 printGrid();
-                
-
-                //change current position to endTile of tile it moved too.
-                //Check if winner
-                    //If Yes:
-                    //winner = true;
-                    //break
-                //checkIfAction --> actually no need can just change current position to endTile
-                    //If action -- display specific message?
             }
-        }while(!winner);
+        } while (!winner);
 
         //display closing message
 
