@@ -33,12 +33,8 @@ public class Playsnakeandladder {
 		
 		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		//game.buildGrid(); // incorporate in play() instead
-		//game.printGrid();
 		game.play();
-		
-		// GameBoard newBoard = new GameBoard();
-		// newBoard.printBoard(); 
+
 		
 		Player.playerOrder(playerArray);
 		System.out.println();
