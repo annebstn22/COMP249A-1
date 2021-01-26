@@ -43,8 +43,17 @@ public class Player {
 	public int getDiceValue() {
 		return diceValue;
 	}
+
+	public void setBoardPos(int boardPos){
+		this.boardPos = boardPos;
+	}
+
 	public int getBoardPos() {
 		return boardPos;
+	}
+
+	public String getPlayerName(){
+		return playerName;
 	}
 	
 	public static void sort(Player[] array) {
