@@ -15,7 +15,7 @@ public class PlayLadderAndSnake {
 
 
         System.out.print("Enter the # of players for your game - Number must be between " 
-        + NB_PLAYERS_MIN +" and " + NB_PLAYERS_MAX +" inclusively: ");
+        + NB_PLAYERS_MIN + " and " + NB_PLAYERS_MAX + " inclusively: ");
 
         int nbInputAttempts = 0;  
         boolean isValidAttempt = false;  
