@@ -28,13 +28,14 @@ public class Playsnakeandladder {
 		for (int i=0; i < numPlayers; i++) {
 			playerArray[i] = new Player("player"+Integer.toString(i+1));
 		}
-		
+
 		System.out.println("you've chosen " + numPlayers + " players");
 		
 		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		game.buildGrid(); // incorporate in play() instead
-		game.printGrid();
+		//game.buildGrid(); // incorporate in play() instead
+		//game.printGrid();
+		game.play();
 		
 		// GameBoard newBoard = new GameBoard();
 		// newBoard.printBoard(); 
