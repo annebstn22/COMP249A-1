@@ -6,7 +6,7 @@ public class PlayLadderAndSnake {
     public static void main(String[] args) {
 
         //loop until player current position = 100
-            //loop depending on number of players
+            //for loop depending on number of players
 
         final int NB_PLAYERS_MIN = 2;
         final int NB_PLAYERS_MAX = 4;
@@ -24,7 +24,7 @@ public class PlayLadderAndSnake {
 
             nbInputAttempts++;
             int input = keyIn.nextInt(); //change so that we can handle characters etc.
-            if (input == 2 || input == 3 || input == 4 ){
+            if (input == 2 || input == 3 || input == 4 ){ //would be nice if our could could be adaptable to diff nbPlayers
                 nbPlayers = input;
                 isValidAttempt = true;
                 System.out.println("Game is played by " + nbPlayers + " players!");
@@ -47,6 +47,8 @@ public class PlayLadderAndSnake {
         if (isValidAttempt){
             LadderAndSnake game = new LadderAndSnake(nbPlayers);
         }
+
+        //game.play();
         
 
         //Test flipDice()
