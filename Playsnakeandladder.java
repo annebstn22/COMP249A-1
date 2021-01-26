@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class PlaySnakeAndLadder {
+public class Playsnakeandladder {
 
 	public static void main(String[] args) {
 		final int NB_PLAYERS_MIN = 2;
