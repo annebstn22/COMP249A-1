@@ -14,6 +14,8 @@ public class LadderAndSnake{
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
     private Player[] players;
     private boolean winner = false;
+    private final static String snakeIcon = "S";
+    private final static String ladderIcon = "L";
 
 
     public LadderAndSnake(int nbPlayers) {
@@ -40,10 +42,12 @@ public class LadderAndSnake{
 
         for (int i=0; i<SNAKE_AND_LADDERS.length; i++){
             ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setEndTile(SNAKE_AND_LADDERS[i][1]);
-            if (ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].getTileNb() < ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].getEndTile()){
-                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setIsLadder(true);
+            if (SNAKE_AND_LADDERS[i][0] < SNAKE_AND_LADDERS[i][1]){
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsLadder(true);
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType("L");
             } else {
-                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]].setIsSnake(true);
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsSnake(true);
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType("S");
             }
         }
 
@@ -58,15 +62,15 @@ public class LadderAndSnake{
         for (int i = BOARD_SIZE - 1; i>=0; i--){
             if(printRowLeft){
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+" } ");
+                    System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
                 }
                 printRowLeft = false;
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+"  } ");
+                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+ "  } ");
                     }else{
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+" } ");
+                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
                     }
                     printRowLeft = true;
                 }

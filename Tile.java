@@ -5,6 +5,7 @@ public class Tile {
     private boolean isActionTile; // normal tile or snake/ladder tile --> automatically set to false?
     private boolean isSnake;
     private boolean isLadder;
+    private String tileType;
 
     //CONSTRUCTORS
 
@@ -12,6 +13,7 @@ public class Tile {
     public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
         this.endTile = endTile;
+        this.tileType = " ";
         if (tileNb == endTile){
             this.isActionTile = false; 
         } else {
@@ -69,6 +71,14 @@ public class Tile {
 
     public void setIsLadder(boolean isLadder){
         this.isLadder= isLadder;
+    }
+
+    public String getTileType(){
+        return this.tileType;
+    }
+
+    public void setTileType(String tileType){
+        this.tileType = tileType;
     }
 
     //Other Methods 
