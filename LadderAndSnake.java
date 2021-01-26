@@ -8,9 +8,11 @@ public class LadderAndSnake{
     private final static int NB_TILES = BOARD_SIZE*BOARD_SIZE;
     private final static int NB_SNAKES = 8;
     private final static int NB_LADDERS = 9;
-    private final static int SNAKE_HEADS_AND_TAILS[][] = new int[NB_SNAKES][2]; //to set all snake tiles at once
-    private final static int LADDER_TOP_AND_BOTTOM[][] = new int[NB_LADDERS][2]; //to set all ladders tiles at once
-    private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES];
+    private final static int SNAKE_AND_LADDERS[][] = {{16,6}, {48,30}, {62,19}, {64,60}, {93,68}, {95,24}, {97,76}, {98,78}};
+
+    // SNAKES_HEADS_AND_TAILS[0][0] --> snake 1's tile nb; 16 1
+    // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
+    private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
     private Players[] players;
     private boolean winner = false;
 
