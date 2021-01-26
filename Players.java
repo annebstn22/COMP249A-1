@@ -1,4 +1,4 @@
-public class Player {
+public class Players {
 
     private String name;
     private int currentPosition = 0;

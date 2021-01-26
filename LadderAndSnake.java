@@ -11,7 +11,7 @@ public class LadderAndSnake{
     private final static int SNAKE_HEADS_AND_TAILS[][] = new int[NB_SNAKES][2]; //to set all snake tiles at once
     private final static int LADDER_TOP_AND_BOTTOM[][] = new int[NB_LADDERS][2]; //to set all ladders tiles at once
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES];
-    private Player[] players;
+    private Players[] players;
     private boolean winner = false;
 
 
