@@ -1,8 +1,9 @@
 import java.util.Scanner;
 public class PlaySnakeAndLadder {
 
-	
 	public static void main(String[] args) {
+		final int NB_PLAYERS_MIN = 2;
+		final int NB_PLAYERS_MAX = 4;
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter amount of players :");
@@ -27,8 +28,13 @@ public class PlaySnakeAndLadder {
 			
 		System.out.println("you've chosen " + numPlayers + " players");
 		
-		GameBoard newBoard = new GameBoard();
-		newBoard.printBoard();
+		LadderAndSnake game = new LadderAndSnake(numPlayers);
+
+		game.buildGrid();
+		game.printGrid();
+		
+		// GameBoard newBoard = new GameBoard();
+		// newBoard.printBoard(); 
 		
 		Player.playerOrder(playerArray);
 		System.out.println();
@@ -36,18 +42,13 @@ public class PlaySnakeAndLadder {
 			System.out.println(playerArray[i]);
 		
 		}
+
+		userInput.close();
 	}
 	
-	
-
-
-
-	public void play() {
-		
-	}
 					
 			
-	}
+	} 
 	
 
 	 
