@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Playladderandsnake {
+public class PlaySnakeAndLadder {
 
 	
 	public static void main(String[] args) {
