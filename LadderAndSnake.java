@@ -110,7 +110,7 @@ public class LadderAndSnake{
                 players[i].setBoardPos(endTile); // Change player position 
                 System.out.println("Board Position after: " + players[i].getBoardPos());
                 if (endTile == 100){
-                    System.out.println( players[i].getPlayerName() + "won!");
+                    System.out.println( players[i].getPlayerName() + " won!");
                     winner = true;
                 } else if (ladderAndSnakeGrid[landingTile].getIsAction()){
                     if (ladderAndSnakeGrid[landingTile].getIsSnake()){
@@ -120,7 +120,7 @@ public class LadderAndSnake{
                     }
                 } 
                 System.out.println(players[i].getPlayerName() + " rolled a " + diceRoll + ".");
-                System.out.println("You have moved to position: " + endTile + ".");
+                System.out.println(players[i].getPlayerName() + " has moved to position: " + endTile + ".");
                 printGrid();
                 
 
