@@ -12,7 +12,7 @@ public class Player {
 	}
 	
 	
-	public static void playerOrder(Player[] players) {
+	public static void playerOrder(Player[] players) { // copy players to other player array
 		for (int i=0; i < players.length ; i++)
 			players[i].flipDice();	
 		
@@ -30,7 +30,6 @@ public class Player {
 			}
 		}
 		
-
 		
 		for (int i=0; i< checkArr.length; i++) {
 			int n=0;
@@ -56,12 +55,20 @@ public class Player {
 
 			for (int i=0; i < checkArr.length; i++){
 				if (checkArr[i][0] >= 2 ){
-					int[] secArr = new int[checkArr[i][0]];
-					
-					sortInt(secArr);
+					Player[] secArr = new Player[checkArr[i][0]];
+					for (int j=0,k=0 ; j < checkArr[i].length; j++){
+						if (checkArr[i][j] != -1){
+							secArr[k] = new Player("name");
+							k++;
+						}
+					}
+					for (int f=0; f < secArr.length ; f++){
+						secArr[f].flipDice();}
+						do{
+							sort(secArr);
+						} while(secArr[0].getDiceValue() != secArr[1].getDiceValue());						
 				}
 			}
-
 		}
 	
 	
@@ -95,23 +102,10 @@ public class Player {
 					array[j] = array[j+1];
 					array[j+1] = temp;
 				}
-				
 			}
 		}
 	}
-	public static void sortInt(int[] array) {
-		for (int i=0; i < array.length-1; i++ ) {
-			for (int j=0; j < array.length-i-1; j++) {
-				if (array[j] > array[j+1]) {
-					
-					int temp = array[j];
-					array[j] = array[j+1];
-					array[j+1] = temp;
-				}
-				
-			}
-		}
-	}
+
 	
 	public String toString() {
 		return playerName + " has dice value of " + getDiceValue();
