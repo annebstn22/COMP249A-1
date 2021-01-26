@@ -13,7 +13,7 @@ public class LadderAndSnake{
     // SNAKES_HEADS_AND_TAILS[0][0] --> snake 1's tile nb; 16 1
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
-    private Players[] players;
+    private Player[] players;
     private boolean winner = false;
 
 
