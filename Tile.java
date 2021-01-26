@@ -33,11 +33,11 @@ public class Tile {
     }
 
     //Getters and Setters
-    public boolean getIsAction(){
+    public boolean getIsActionTile(){
         return isActionTile;
     }
 
-    public void setIsAction(boolean isAction){
+    public void setIsActionTile(boolean isAction){
         this.isActionTile = isAction;
     }
 
