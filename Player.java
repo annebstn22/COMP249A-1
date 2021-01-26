@@ -1,7 +1,7 @@
 
 public class Player {
-	private int currentDiceNum;
-	private int currentBoardPos;
+	private int diceValue;
+	private int boardPos;
 	private String playerName; 
 	
 	public Player(String name) {
@@ -33,15 +33,15 @@ public class Player {
 	
 	
 	public int flipDice() {
-		currentDiceNum = (int)(Math.random()* 6)+1;
-		return currentDiceNum;
+		diceValue = (int)(Math.random()* 6)+1;
+		return diceValue;
 	}
 	
 	public int getDiceValue() {
-		return currentDiceNum;
+		return diceValue;
 	}
-	public int getPos() {
-		return currentBoardPos;
+	public int getBoardPos() {
+		return boardPos;
 	}
 	
 	public static void sort(Player[] array) {
