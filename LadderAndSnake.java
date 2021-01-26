@@ -34,7 +34,8 @@ public class LadderAndSnake{
 
         for (int i=0; i<NB_TILES; i++){
             ladderAndSnakeGrid[i].setTileNb(i+1);
-            System.out.print(ladderAndSnakeGrid[i].getTileNb());
+            ladderAndSnakeGrid[i].setEndTile(i+1);
+            System.out.print(ladderAndSnakeGrid[i].getTileNb()); //to check functioning well
         }
 
         //loop to set snakes
