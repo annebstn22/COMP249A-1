@@ -49,6 +49,7 @@ public class PlayLadderAndSnake {
 
         game.buildGrid();
         game.printGrid();
+        game.printGrid();
 
         //game.play();
         
