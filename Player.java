@@ -5,8 +5,8 @@ public class Player {
 	private String playerName; 
 	
 	public Player(String name) {
-		currentDiceNum = 0;
-		currentBoardPos = 0;
+		diceValue = 0;
+		boardPos = 0;
 		playerName = name;
 	}
 	
