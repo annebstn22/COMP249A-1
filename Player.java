@@ -1,3 +1,4 @@
+import jdk.tools.jimage.resources.jimage;
 
 public class Player {
 	private int diceValue;
@@ -23,14 +24,34 @@ public class Player {
 		}
 		
 		int[][] checkArr = new int[6][5];
+		for (int i=0; i < checkArr.length; i++) {
+			for(int j=0; j < checkArr[0].length; j++){
+			checkArr[i][j] = -1;
+			}
+		}
+		
 
-
-		for (int i=0; i< players.length; i++) {
-			for (int j=i+1; j<players.length; j++) {
-				if (players[i].getDiceValue() == players[j].getDiceValue()) {
-				
+		
+		for (int i=0; i< checkArr.length; i++) {
+			int n=0;
+			for (int j=0; j<players.length; j++) {
+			
+				if (players[j].getDiceValue() == (i+1)) {
+				n++;
+				checkArr[i][0]=n;
+				checkArr[i][j+1]=j;
 					}
+					
 				}
+			}
+			for (int i=0; i < checkArr.length; i++) {
+				for(int j=0; j < checkArr[0].length; j++){
+					if (checkArr[i][j] != -1)
+				System.out.print(" " + checkArr[i][j] + " ");
+				else 
+				System.out.print( checkArr[i][j] + " ");
+				}
+				System.out.println();
 			}
 		}
 	
