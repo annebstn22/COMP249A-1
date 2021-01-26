@@ -6,9 +6,8 @@ public class LadderAndSnake{
     private final static int NB_DICE_FACES = 6;
     private final static int BOARD_SIZE = 10;
     private final static int NB_TILES = BOARD_SIZE*BOARD_SIZE;
-    private final static int NB_SNAKES = 8;
-    private final static int NB_LADDERS = 9;
-    private final static int SNAKE_AND_LADDERS[][] = {{16,6}, {48,30}, {62,19}, {64,60}, {93,68}, {95,24}, {97,76}, {98,78}};
+    private final static int SNAKE_AND_LADDERS[][] = {{16,6}, {48,30}, {62,19}, {64,60}, {93,68}, {95,24}, {97,76}, {98,78},
+                                                        {1,38},{4,14},{9,31},{21,42},{28,84},{36,44},{51,67},{71,91},{80,100}};
 
     // SNAKES_HEADS_AND_TAILS[0][0] --> snake 1's tile nb; 16 1
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
