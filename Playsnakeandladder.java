@@ -6,6 +6,8 @@ public class Playsnakeandladder {
 		final int NB_PLAYERS_MAX = 4;
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
+
+		// User Input Validation 
 		System.out.println("Enter amount of players :");
 		int numPlayers = userInput.nextInt();
 		while ((numPlayers < 2 || numPlayers > 4 ) ) {
@@ -20,6 +22,7 @@ public class Playsnakeandladder {
 			}
 		}
 		
+		// Create array of players
 		Player[] playerArray = new Player[numPlayers];
 		
 		for (int i=0; i < numPlayers; i++) {
@@ -28,9 +31,9 @@ public class Playsnakeandladder {
 			
 		System.out.println("you've chosen " + numPlayers + " players");
 		
-		LadderAndSnake game = new LadderAndSnake(numPlayers);
+		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		game.buildGrid();
+		game.buildGrid(); // incorporate in play() instead
 		game.printGrid();
 		
 		// GameBoard newBoard = new GameBoard();
