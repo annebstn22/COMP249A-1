@@ -53,6 +53,15 @@ public class Player {
 				}
 				System.out.println();
 			}
+
+			for (int i=0; i < checkArr.length; i++){
+				if (checkArr[i][0] >= 2 ){
+					int[] secArr = new int[checkArr[i][0]];
+					
+					sortInt(secArr);
+				}
+			}
+
 		}
 	
 	
@@ -83,6 +92,19 @@ public class Player {
 				if (array[j].getDiceValue() > array[j+1].getDiceValue()) {
 					
 					Player temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+				
+			}
+		}
+	}
+	public static void sortInt(int[] array) {
+		for (int i=0; i < array.length-1; i++ ) {
+			for (int j=0; j < array.length-i-1; j++) {
+				if (array[j] > array[j+1]) {
+					
+					int temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;
 				}
