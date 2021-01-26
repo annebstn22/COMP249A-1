@@ -55,6 +55,22 @@ public class Tile {
         this.endTile = endTile;
     }
 
+    public boolean getIsSnake(){
+        return isSnake;
+    }
+
+    public void setIsSnake(boolean isSnake){
+        this.isSnake = isSnake;
+    }
+
+    public boolean getIsLadder(){
+        return isLadder;
+    }
+
+    public void setIsLadder(boolean isLadder){
+        this.isLadder= isLadder;
+    }
+
     //Other Methods 
     // could omit for variables isSnake and isLadder above;
     /*public boolean checkForSnake(){
