@@ -2,7 +2,6 @@
 
 public class LadderAndSnake{
 
-    private int nbPlayers;
     private final static int NB_DICE_FACES = 6;
     private final static int BOARD_SIZE = 10;
     private final static int NB_TILES = BOARD_SIZE*BOARD_SIZE;
@@ -13,9 +12,9 @@ public class LadderAndSnake{
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
     private Player[] players;
-    private boolean winner = false;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
+    private int nbPlayers;
 
 
     public LadderAndSnake(int nbPlayers, Player[] players) {
@@ -58,10 +57,10 @@ public class LadderAndSnake{
             ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsActionTile(true);
             if (SNAKE_AND_LADDERS[i][0] < SNAKE_AND_LADDERS[i][1]){
                 ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsLadder(true);
-                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType("L");
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType(ladderIcon);
             } else {
                 ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setIsSnake(true);
-                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType("S");
+                ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType(snakeIcon);
             }
         }
 
