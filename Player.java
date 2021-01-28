@@ -38,14 +38,15 @@ public class Player {
 
 		
 
-		
-		for (int startPos =0; startPos < players.length ; startPos = startPos + subArray(players, startPos).length  )
+		int startPos =0;
+		while ( startPos < players.length  ){
 
 			for (int i=0; i < subArray(players, startPos).length; i++) {
 				System.out.print(subArray(players, startPos)[i] + " ");
+				startPos = startPos + subArray(players, startPos).length ;
 				
 			}
-			
+		}
 			
 		
 
@@ -135,19 +136,22 @@ public class Player {
 		Player[] subPlayers = new Player[array.length];
 		for (int i=0 ; i < subPlayers.length; i++){
 		   subPlayers[i] = new Player(array[i]);
+		   
 		}
-		for (int i=1 ; i < subPlayers.length-(startPos+1); i++ ) {
+		int i = 1;
+		while ( i < subPlayers.length-(startPos+1)) {
 			
 				if ((subPlayers[startPos].getDiceValue() != subPlayers[startPos+i].getDiceValue() ) || ((startPos+i) == subPlayers.length) ){
 					arraySize = i;
 					break;
 					
 				}
+				i++;
 					
 		}
 		Player[] subArr = new Player[arraySize];
-		for (int i=0 ; i < arraySize; i++){
-			subArr[i] = new Player(subPlayers[i]);
+		for (int k=0 ; k < arraySize; k++){
+			subArr[k] = new Player(subPlayers[k]);
 		 }
 
 		 
