@@ -36,8 +36,10 @@ public class Player {
 		}
 		System.out.println();
 
-		
-
+		for (int i=0; i < subArray(players, 0).length; i++) {
+			System.out.println(subArray(players, 0)[i] + " .");
+		}
+/*
 		int startPos =0;
 		while ( startPos < players.length  ){
 			int length = subArray(players, startPos).length;
@@ -48,7 +50,7 @@ public class Player {
 			}
 		}
 			
-		
+		*/
 
 
 	
@@ -127,7 +129,7 @@ public class Player {
 	}
 
 
-	public static Player[] subArray(Player[] array , int startPos ){
+	private static Player[] subArray(Player[] array , int startPos ){
 		
 		
 		
@@ -139,7 +141,7 @@ public class Player {
 		   
 		}
 		int arraySize = 1;
-		while ( ((startPos+arraySize) != subPlayers.length) && (subPlayers[startPos].getDiceValue() == subPlayers[startPos+arraySize].getDiceValue() ))  {
+		while ( ((startPos+arraySize) < subPlayers.length) && (subPlayers[startPos].getDiceValue() == subPlayers[startPos+arraySize].getDiceValue() ))  {
             arraySize++;
 		}
 		Player[] subArr = new Player[arraySize];
@@ -152,7 +154,7 @@ public class Player {
 	}
 
 
-	public static void flipNsort(Player[] array) {
+	private static void flipNsort(Player[] array) {
 
 		for (int i=0; i < array.length ; i++)
 			array[i].flipDice();	
