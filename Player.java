@@ -140,6 +140,7 @@ public class Player {
 			
 				if ((subPlayers[startPos].getDiceValue() != subPlayers[startPos+i].getDiceValue() ) || ((startPos+i) == subPlayers.length) ){
 					arraySize = i;
+					break;
 					
 				}
 					
