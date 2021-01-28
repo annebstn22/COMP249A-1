@@ -40,10 +40,10 @@ public class Player {
 
 		int startPos =0;
 		while ( startPos < players.length  ){
-
+			int length = subArray(players, startPos).length;
 			for (int i=0; i < subArray(players, startPos).length; i++) {
 				System.out.print(subArray(players, startPos)[i] + " ");
-				startPos = startPos + subArray(players, startPos).length ;
+				startPos = startPos + length ;
 				
 			}
 		}
