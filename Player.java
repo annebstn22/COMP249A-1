@@ -20,14 +20,8 @@ public class Player {
 	}
 	
 	
-	public static void playerOrder(Player[] array) { // copy players to other player array
-		Player[] players = new Player[array.length];
-		for (int i = 0; i < players.length; i++){
-           players[i] = new Player(array[i]);
-        }
+	public static void playerOrder(Player[] players) { 
 
-		
-		
 		flipNsort(players);
 		
 		
@@ -36,9 +30,22 @@ public class Player {
 		}
 		System.out.println();
 
+
+		Player[] finalSequence = new Player[players.length];
+
 		for (int i=0; i < subArray(players, 0).length; i++) {
 			System.out.println(subArray(players, 0)[i] + " .");
+		
 		}
+		int startPos = 0;
+		while (finalSequence[players.length-1] == null){
+			furtherSort(subArray(players,startPos), finalSequence,startPos);
+		}
+
+
+
+
+		furtherSort(players, finalSequence,1);
 /*
 		int startPos =0;
 		while ( startPos < players.length  ){
@@ -129,6 +136,17 @@ public class Player {
 	}
 
 
+
+public void printDiceResults(Player[] array){
+	for (int i=0; i < array.length; i++) {
+		System.out.println(array[i]);
+	}
+	System.out.println();
+}
+
+
+
+
 	private static Player[] subArray(Player[] array , int startPos ){
 		
 		
@@ -152,9 +170,37 @@ public class Player {
 		 
 		return subArr;
 	}
+ 		private static boolean furtherSort(Player[] array, Player[] finalArray, int x) {
+		
+		if (array.length == 1){
+			array[0] = finalArray[x];
+			return true;
+		}
+		else if (array.length == 2){
+			System.out.println("There is a tie between"+ array[0] +" and "+ array[1]);
+			while (array[0] == array[1]){
+				flipNsort(array);
+			}
+			array[0] = finalArray[x];
+			array[1] = finalArray[x+1];
+			return true;
+		}
+		else {
+			flipNsort(array);
+			subArray(array, x);
+			return false;
+		}
+	
+	}
 
 
-	private static void flipNsort(Player[] array) {
+
+
+
+
+
+
+	 private static void flipNsort(Player[] array) {
 
 		for (int i=0; i < array.length ; i++)
 			array[i].flipDice();	
