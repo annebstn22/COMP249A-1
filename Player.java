@@ -138,13 +138,13 @@ public class Player {
 
 
 public void printDiceResults(Player[] array){
-	Player[] subPlayers = new Player[array.length];
-		for (int i=0 ; i < subPlayers.length; i++){
-		   subPlayers[i] = new Player(array[i]);
+	Player[] copiedArray = new Player[array.length];
+		for (int i=0 ; i < copiedArray.length; i++){
+			copiedArray[i] = new Player(array[i]);
 		}
-		
-	for (int i=0; i < array.length; i++) {
-		System.out.println(array[i]);
+
+	for (int i=0; i < copiedArray.length; i++) {
+		System.out.println(copiedArray[i]);
 	}
 	System.out.println();
 }
