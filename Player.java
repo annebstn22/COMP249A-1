@@ -138,6 +138,11 @@ public class Player {
 
 
 public void printDiceResults(Player[] array){
+	Player[] subPlayers = new Player[array.length];
+		for (int i=0 ; i < subPlayers.length; i++){
+		   subPlayers[i] = new Player(array[i]);
+		}
+		
 	for (int i=0; i < array.length; i++) {
 		System.out.println(array[i]);
 	}
@@ -170,6 +175,7 @@ public void printDiceResults(Player[] array){
 		 
 		return subArr;
 	}
+
  		private static boolean furtherSort(Player[] array, Player[] finalArray, int x) {
 		
 		if (array.length == 1){
