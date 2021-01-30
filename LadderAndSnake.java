@@ -162,8 +162,8 @@ public class LadderAndSnake{
                 } 
                 System.out.println(playerName + " rolled a " + diceRoll + ".");
                 System.out.println(playerName + " has moved to position: " + endTile + ".");
-                printGrid();
             }
+            printGrid(); 
         } while (!winner);
 
         //display closing message
