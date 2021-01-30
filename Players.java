@@ -4,7 +4,6 @@ public class Players {
     private String playerName;
 
    //copy constructor
-
    public Players (Players player){
        this.diceValue = player.getDiceValue();
        this.boardPos = player.getBoardPos();
@@ -48,9 +47,6 @@ public class Players {
 
         int startPos = start;
         int endPos = start;
-       // int numOfPlayers = gamePlayers.length;
-       // boolean sorted = false;
-       // boolean duplicates = false;
 
         flipNsort(gamePlayers, start, end);
         printPlayerArray(gamePlayers);
