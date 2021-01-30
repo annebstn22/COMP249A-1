@@ -80,13 +80,13 @@ public class LadderAndSnake{
         System.out.println(" ----------------------------------------------------------------------------------");
         for (int i = BOARD_SIZE - 1; i>=0; i--){
 
-            // modify for loop to print players on tile
+            //TO DO: modify for loop to print players on tile
             for (int j = 0; j<BOARD_SIZE; j++){
                 System.out.print(" |      ");
             }
             System.out.println("  |");
 
-            // for decreasing rows
+            // for decreasing rows i.e 100, 99, 98...
             if(printRowLeft){
                 for (int j = 0; j<BOARD_SIZE; j++){
                     System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
@@ -96,7 +96,7 @@ public class LadderAndSnake{
                 }
                 printRowLeft = false;
 
-            // for increasing rows
+            // for increasing rows  i.e 1, 2, 3, 4...
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
@@ -108,7 +108,7 @@ public class LadderAndSnake{
             }
             System.out.println("  |");
 
-            //modify for loop such that if an action tile it prints "-> _endTile_"
+            //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
             for (int j = 0; j<BOARD_SIZE; j++){
                 System.out.print(" |      ");
             }
@@ -116,7 +116,6 @@ public class LadderAndSnake{
             System.out.println(" ----------------------------------------------------------------------------------");
             
         }
-
     }
 
     public void play(){
@@ -142,8 +141,8 @@ public class LadderAndSnake{
 
                 players[i].setBoardPos(endTile); // Change player position 
 
-                
-                if (ladderAndSnakeGrid[landingTile].getIsActionTile()){ //Check for Action Tile
+                //Check for action tile (snake or ladder)
+                if (ladderAndSnakeGrid[landingTile].getIsActionTile()){ 
                     if (ladderAndSnakeGrid[landingTile].getIsSnake()){
                         System.out.println("Uh Oh Snake! Slither down to tile: " + ladderAndSnakeGrid[landingTile].getEndTile() );
                     } else if (ladderAndSnakeGrid[landingTile].getIsLadder()){
@@ -153,7 +152,7 @@ public class LadderAndSnake{
 
                 System.out.println("Board Position of " + playerName + " after: " + players[i].getBoardPos());
                 System.out.println(playerName + " has moved to position: " + endTile + ".");
-                
+
                 if (endTile == 100){ //Check for winner
                     System.out.println(playerName + " won!");
                     winner = true;
