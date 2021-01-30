@@ -64,7 +64,18 @@ public class Players {
                     startPos = endPos+1;
                     endPos = startPos;
             } else { // order portion of array with duplicates then move to following index
+                System.out.println("There is a tie between ");
+			    for (int k=startPos; k< endPos; k++){
+				System.out.print(gamePlayers[k].getPlayerName() + ", ");
+                }
+
+                System.out.println(" and " + gamePlayers[endPos].getPlayerName()+".\n");
+			    System.out.print("Attempting to break tie.\n");
                 orderPlayers(gamePlayers, startPos, endPos);
+                for (int k=startPos; k< endPos; k++){
+                    System.out.println(gamePlayers[k] + " ");
+                    }
+                System.out.println();
                 startPos = endPos + 1;
                 endPos = startPos;
             }
