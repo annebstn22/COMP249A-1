@@ -3,22 +3,29 @@ public class Playsnakeandladder {
 
 	public static void main(String[] args) {
 		final int NB_PLAYERS_MIN = 2;
-		final int NB_PLAYERS_MAX = 4;
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
-
-		System.out.println("\nWelcome to Snakes And Ladders!\n");
-
-		System.out.print("\nPlease enter your name: \n");
+		System.out.println("\n<--------------------------------->");
+		System.out.println("  Welcome to Snakes And Ladders!");
+		System.out.println("<--------------------------------->");
+		
+		System.out.print("\nPlease enter your name: ");
 		String userName = userInput.nextLine();
+		int maxPlayers;
+		System.out.print("Hello " + userName + " ! Would you like to play extreme mode? (Y/N)");
+		if (userInput.next().equals("Y"))
+			maxPlayers = 100;
+		else 
+			maxPlayers = 4;
 
 		// User Input Validation 
-		System.out.println("Please enter amount of players (2-4 players):");
+		System.out.println("Please enter amount of players (2-"+ maxPlayers + " players): ");
 		int numPlayers = userInput.nextInt();
-		while (numPlayers < NB_PLAYERS_MIN || numPlayers > NB_PLAYERS_MAX) { // to change back
+		while (numPlayers < NB_PLAYERS_MIN || numPlayers > maxPlayers) { // to change back
 			numChances++;
 			if (numChances == 4) {
-				System.out.println("You've run out of chances");
+				System.out.println("You've run out of attempts");
+				printEndScreen();
 				System.exit(0);
 			}
 			else {
@@ -64,12 +71,15 @@ public class Playsnakeandladder {
 			System.out.println(playerArray[i]);
 		
 		}*/
-
+	
 		userInput.close();
 	}
-	
-					
-			
+
+	public static void printEndScreen() {
+				System.out.println("<-------------------------------->");
+				System.out.println("<---------> GAME OVER <---------->");
+				System.out.println("<-------------------------------->");
+			}
 	} 
 	
 
