@@ -185,7 +185,7 @@ public class Player {
 			while (array[0] == array[1]){
 				flipNsort(array);
 			}
-			array.printDiceResults();
+			//array.printDiceResults();
 			array[0] = finalArray[x];
 			array[1] = finalArray[x+1];
 			return true;
