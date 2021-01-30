@@ -4,6 +4,8 @@ public class Player {
 	private int diceValue;
 	private int boardPos;
 	private String playerName; 
+	public static int finalIndexPos=0;
+	public static int subStartPos=0;
 	
 	
 	public Player(String name) {
@@ -25,85 +27,42 @@ public class Player {
 		flipNsort(players);
 		
 	
-
-		for (int i=0; i < players.length; i++) {
-			System.out.println(players[i]);
-		}
-		System.out.println();
-
-
-		Player[] finalSequence = new Player[players.length];
-
-		for (int i=0; i < subArray(players, 0).length; i++) {
-			System.out.println(subArray(players, 0)[i] + " .");
+			printDiceResults(players);
 		
-		}
+		
+		Player[] finalSequence = new Player[players.length];
+		
 		int startPos = 0;
 		while (finalSequence[players.length-1] == null){
-			furtherSort(subArray(players,startPos), finalSequence,startPos);
-		}
-
-
-
-
-		furtherSort(players, finalSequence,1);
-/*
-		int startPos =0;
-		while ( startPos < players.length  ){
-			int length = subArray(players, startPos).length;
-			for (int i=0; i < subArray(players, startPos).length; i++) {
-				System.out.print(subArray(players, startPos)[i] + " .");
-				startPos = startPos + length ;
-				
-			}
-		}
 			
-		*/
-
-
-	
-
-
-
-
-		/*
-		Player[] PLAYERS = new Player[players.length];
-		
-
-		for (int i=0; i < players.length-1; i++ ) {
-			for (int j=0; j < players.length-i-1; j++) {
-				if (players[j] != players[j+1]){
-					PLAYERS[i] = players[j];
-				}
-				else{
-					for (int f=1 ; f < players.length ; f++ ){
-						if (players[j] == players[j + (players.length -f)]){
-							switch (players.length-2 +j){
-								case 2:
-									System.out.println("A tie was acheived between " + players[j] + " and " 
-									+ players[j+1] + ". Attempting to break the tie.");
-								case 3: 
-									System.out.println("A tie was acheived between " + players[j] + " and " 
-									+ players[j+1] + " and " + players[j+2]+ ". Attempting to break the tie.");
-								case 4:
-									System.out.println("A tie was acheived between " + players[j] + " and " 
-									+ players[j+1] + " and " + players[j+2] + " and " + players[j+3] +". Attempting to break the tie.");
-
-							}
-							int g= players.length-f;
-							Player[] tempPlayer = new Player[players.length-2 +j];
-							for (int z=0; z < tempPlayer.length; z++){
-								tempPlayer[z] = new Player(players[j+z]);
-							}
-							flipNsort(tempPlayer);
-						}
-					}
-					
-				}
+			Player[] subArray = new Player[subArray(players,startPos).length];
+		for (int i=0 ; i < subArray.length; i++){
+			subArray[i] = new Player(subArray(players,startPos)[i]);
 			}
+
+			do{
+
+			furtherSort(subArray, finalSequence);
+			if (furtherSort(subArray, finalSequence)){
+
+				Player[] subSubArray = new Player[subArray(players,startPos).length];
+		for (int i=0 ; i < subArray.length; i++){
+			subSubArray[i] = new Player(subArray(players,startPos)[i]);
+			}
+
+			}
+			} while(furtherSort(subArray, finalSequence));
+
+
+			startPos= startPos + subArray.length;
 		}
-*/
-					}
+
+		System.out.println("Final starting order determined: ");
+		for(int i=0; i<finalSequence.length;i++){
+			System.out.print(finalSequence[i].getPlayerName() + ", ");
+		}
+		
+	}
 
 	
 	public int flipDice() {
@@ -137,24 +96,7 @@ public class Player {
 	}
 
 
-
- 	public void printDiceResults(Player[] array){
-
-
-	for (int i=0; i < array.length; i++) {
-		System.out.println(array[i]);
-	}
-	System.out.println();
-	}
-
-
-
-
 	private static Player[] subArray(Player[] array , int startPos ){
-		
-		
-		
-		
 		
 		Player[] subPlayers = new Player[array.length];
 		for (int i=0 ; i < subPlayers.length; i++){
@@ -174,33 +116,51 @@ public class Player {
 		return subArr;
 	}
 
- 		private static boolean furtherSort(Player[] array, Player[] finalArray, int x) {
+ 		 static boolean furtherSort(Player[] array, Player[] finalArray) {
+			  
 		
 		if (array.length == 1){
-			array[0] = finalArray[x];
-			return true;
+			array[0] = finalArray[finalIndexPos];
+			finalIndexPos++;
+			return false;
 		}
 		else if (array.length == 2){
-			System.out.println("There is a tie between"+ array[0] +" and "+ array[1] + " . Attemmpting to break tie.");
-			while (array[0] == array[1]){
+
+			System.out.println("There is a tie between "+ array[0].getPlayerName() +" and "+ array[1].getPlayerName() + 
+			" . Attemmpting to break tie.");
+			while (array[0].getDiceValue() == array[1].getDiceValue()){
 				flipNsort(array);
 			}
-			array.printDiceResults();
-			array[0] = finalArray[x];
-			array[1] = finalArray[x+1];
-			return true;
+			printDiceResults(array);
+			array[0] = finalArray[finalIndexPos];
+			
+			array[1] = finalArray[finalIndexPos+1];
+			finalIndexPos = finalIndexPos +2;;
+			return false;
 		}
 		else {
+			System.out.println("There is a tie between ");
+			for (int i=0; i< array.length; i++){
+				System.out.print(array[i].getPlayerName() + " and ");
+			}
+			System.out.print(" . Attempting to break tie.");
+
 			flipNsort(array);
-			subArray(array, x);
-			return false;
+			
+			return true;
 		}
 	
 	}
 
 
+	private static void printDiceResults(Player[] array){
 
 
+		for (int i=0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
+		System.out.println();
+		}
 
 
 
