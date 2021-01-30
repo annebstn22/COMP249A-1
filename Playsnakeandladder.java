@@ -23,11 +23,11 @@ public class Playsnakeandladder {
 		}
 		
 		// Create array of players
-		//Player[] playerArray = new Player[numPlayers];
+		Player[] playerArray = new Player[numPlayers];
 		
-		/*for (int i=0; i < numPlayers; i++) {
+		for (int i=0; i < numPlayers; i++) {
 			playerArray[i] = new Player("player "+Integer.toString(i+1));
-		}*/
+		}
 
 		Players[] playersArray = new Players[numPlayers];
 
@@ -45,9 +45,9 @@ public class Playsnakeandladder {
 
 		
 		
-		//LadderAndSnake game = new LadderAndSnake(numPlayers, playersArray);
+		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		//game.play();
+		game.play();
 
 
 		/* Player.playerOrder(playerArray);

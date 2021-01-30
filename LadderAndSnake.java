@@ -82,28 +82,46 @@ public class LadderAndSnake{
     public void printGrid(){
         //--> figure out how to indicate if snake / ladder -- text? ladder --> 29 / snake --> 10
         boolean printRowLeft = true;
+        System.out.println(" ----------------------------------------------------------------------------------");
         for (int i = BOARD_SIZE - 1; i>=0; i--){
+            for (int j = 0; j<BOARD_SIZE; j++){
+                System.out.print(" |      ");
+            }
+            System.out.println("  |");
             if(printRowLeft){
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() > 99){
+                    /*if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() > 99){
                         System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+"| ");
                     } else {
                     System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" | ");
+                    }*/
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() <100){
+                    System.out.print(" ");
                     }
                 }
                 printRowLeft = false;
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
+                    /*if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
                         System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+ "  | ");
                     }else {
                         System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" | ");
-                    }
-                    printRowLeft = true;
+                    }*/
+
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
+                        System.out.print(" ");
+                    } 
                 }
+                printRowLeft = true;
             }
-            System.out.println();
-            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("  |");
+            for (int j = 0; j<BOARD_SIZE; j++){
+                System.out.print(" |      ");
+            }
+            System.out.println("  |");
+            System.out.println(" ----------------------------------------------------------------------------------");
             
         }
 
