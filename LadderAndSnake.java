@@ -99,26 +99,13 @@ public class LadderAndSnake{
 
                 for (int j = 0; j<BOARD_SIZE; j++){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
-                    if (currentTile.getTileNb() <100){
-                    System.out.print(" ");
-                    }
+                    printNbRow(currentTile);
                 }
                 System.out.println("  |");
 
                 for (int j = 0; j<BOARD_SIZE; j++){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    if (currentTile.getIsActionTile()){
-                        System.out.print(" | ->"+ currentTile.getEndTile());
-                        if (currentTile.getEndTile()<100){
-                            System.out.print(" ");
-                        }
-                        if (currentTile.getEndTile()<10){
-                            System.out.print(" ");
-                        }
-                    }else {
-                        System.out.print(" |      ");
-                    }
+                    printAction (currentTile);
                 }
                 printRowLeft = false;
 
@@ -126,30 +113,14 @@ public class LadderAndSnake{
             } else {
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
-                    if (currentTile.getTileNb() <100){
-                    System.out.print(" ");
-                    }
-                    if (currentTile.getTileNb() <10){
-                        System.out.print(" ");
-                    }
+                    printNbRow(currentTile);
                 }
 
                 System.out.println("  |");
 
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    if (currentTile.getIsActionTile()){
-                        System.out.print(" | ->"+ currentTile.getEndTile());
-                        if (currentTile.getEndTile()<100){
-                            System.out.print(" ");
-                        }
-                        if (currentTile.getEndTile()<10){
-                            System.out.print(" ");
-                        }
-                    }else {
-                        System.out.print(" |      ");
-                    }
+                    printAction(currentTile);
                 }
                 printRowLeft = true;
             }
@@ -159,6 +130,30 @@ public class LadderAndSnake{
             }
             
         }
+
+    static private void printNbRow(Tile currentTile){
+    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
+                if (currentTile.getTileNb() <100){
+                System.out.print(" ");
+                }
+                if (currentTile.getTileNb() <10){
+                    System.out.print(" ");
+                }
+    }
+
+    static private void printAction(Tile currentTile){
+        if (currentTile.getIsActionTile()){
+            System.out.print(" | ->"+ currentTile.getEndTile());
+            if (currentTile.getEndTile()<100){
+                System.out.print(" ");
+            }
+            if (currentTile.getEndTile()<10){
+                System.out.print(" ");
+            }
+        }else {
+            System.out.print(" |      ");
+        }
+    }
 
     public void play(){
 
