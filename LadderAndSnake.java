@@ -87,36 +87,47 @@ public class LadderAndSnake{
 
             // for decreasing rows i.e 100, 99, 98...
             if(printRowLeft){
+
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() <100){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
+                    if (currentTile.getTileNb() <100){
                     System.out.print(" ");
                     }
                 }
-                System.out.println();
+                System.out.println("  |");
+
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getIsActionTile()){
-                        System.out.print(" | ->"+ ladderAndSnakeGrid[10*(i+1)-j-1].getEndTile()+" ");
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    if (currentTile.getIsActionTile()){
+                        System.out.print(" | ->"+ currentTile.getEndTile());
+                        if (currentTile.getEndTile()<100){
+                            System.out.print(" ");
+                        }
+                        if (currentTile.getEndTile()<10){
+                            System.out.print(" ");
+                        }
                     }
                     else {
                         System.out.print(" |      ");
                     }
-
                 }
                 printRowLeft = false;
 
             // for increasing rows  i.e 1, 2, 3, 4...
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType() + " ");
+                    if (currentTile.getTileNb() < 10){
                         System.out.print(" ");
                     } 
                 }
-                System.out.println();
+                System.out.println("  |");
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getIsActionTile()){
-                        System.out.print(" | ->"+ ladderAndSnakeGrid[10*(i+1)-j-1].getEndTile()+" ");
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    if (currentTile.getIsActionTile()){
+                        System.out.print(" | ->"+ currentTile.getEndTile()+" ");
                     }
                     else {
                         System.out.print(" |      ");
@@ -127,10 +138,11 @@ public class LadderAndSnake{
                 printRowLeft = true;
             }
             System.out.println("  |");
+            
 
             //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
         
-            System.out.println("  |");
+           // System.out.println("  |");
             System.out.println(" ----------------------------------------------------------------------------------");
             
         }
