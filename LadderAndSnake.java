@@ -10,29 +10,48 @@ public class LadderAndSnake{
 
     // SNAKES_HEADS_AND_TAILS[0][0] --> snake 1's tile nb; 16 1
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
+
+
+
+
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
-    private Players[] players;
+    private Player[] players;
+    private Players[] playerss;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
     private int nbPlayers; // could probably remove
 
 
+    // array for random name generator
+
+    String[] randNames = {"James","Mary","John","Patricia","Robert","Jennifer","Linda","Elizabeth","David","Barbara", "William", "Michael",
+    "William","Richard","Joseph","Thomas","Charles","Christopher","Susan","Jessica","Sarah","Karen","Nancy","Lisa","Daniel",
+    "Matthew","Anthony","Donald","Mark","Margaret","Betty","Sandra","Ashley","Dorothy","Kimberly","Emily","Donna","Michelle",
+    "Carol","Amanda","Melissa","Deborah","Stephanie","Rebecca","Laura","Sharon","Cynthia","Mindy","Anne","Julian","Laika","Kathleen",
+    "Amy","Shirley","Angela","Helen","Anna","Brenda","Pamela","Nicole","Samantha","Katherine","Emma","Christine","Catherine","Debra",
+    "Rachel","Carolyn","Janet","Virginia","Matthew","Anthony","Donald","Mark","Paul","Steven","Andrew","Kenneth","Joshua","Kevin",
+    "Brian","George","Edward","Ronald","Timothy","Jason","Jeffrey","Ryan","Jacob","Gary","Nicholas","Eric","Jonathan","Stephen",
+    "Larry","Justin","Scott","Brandon","Benjamin","Samuel","Ruth","Frank","Gregory","Raymond","Alexander","Patrick" };
+
+    
+
+
     //constructor with initial Player class
-    /*public LadderAndSnake(int nbPlayers, Player[] players) {
+    public LadderAndSnake(int nbPlayers, Player[] players) {
         this.nbPlayers = nbPlayers;
-        this.players = new Players[players.length];
+        this.players = new Player[players.length];
         for (int i = 0; i < players.length; i++){
             this.players[i] = new Player(players[i].getPlayerName());
         }
         // add players to array "players"
-    }*/
+    }
 
     //constructor with Players class
     public LadderAndSnake(int nbPlayers, Players[] players) {
         this.nbPlayers = nbPlayers;
-        this.players = new Players [players.length];
+        this.playerss = new Players [players.length];
         for (int i = 0; i < players.length; i++){
-            this.players[i] = new Players(players[i].getPlayerName());
+            this.players[i] = new Player(players[i].getPlayerName());
         }
         // add players to array "players"
     }
@@ -87,29 +106,10 @@ public class LadderAndSnake{
 
             // for decreasing rows i.e 100, 99, 98...
             if(printRowLeft){
-
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
-                    if (currentTile.getTileNb() <100){
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() <100){
                     System.out.print(" ");
-                    }
-                }
-                System.out.println("  |");
-
-                for (int j = 0; j<BOARD_SIZE; j++){
-                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    if (currentTile.getIsActionTile()){
-                        System.out.print(" | ->"+ currentTile.getEndTile());
-                        if (currentTile.getEndTile()<100){
-                            System.out.print(" ");
-                        }
-                        if (currentTile.getEndTile()<10){
-                            System.out.print(" ");
-                        }
-                    }
-                    else {
-                        System.out.print(" |      ");
                     }
                 }
                 printRowLeft = false;
@@ -117,32 +117,20 @@ public class LadderAndSnake{
             // for increasing rows  i.e 1, 2, 3, 4...
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType() + " ");
-                    if (currentTile.getTileNb() < 10){
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
                         System.out.print(" ");
                     } 
                 }
-                System.out.println("  |");
-                for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
-                    if (currentTile.getIsActionTile()){
-                        System.out.print(" | ->"+ currentTile.getEndTile()+" ");
-                    }
-                    else {
-                        System.out.print(" |      ");
-                    }
-
-                }
-
                 printRowLeft = true;
             }
             System.out.println("  |");
-            
 
             //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
-        
-           // System.out.println("  |");
+            for (int j = 0; j<BOARD_SIZE; j++){
+                System.out.print(" |      ");
+            }
+            System.out.println("  |");
             System.out.println(" ----------------------------------------------------------------------------------");
             
         }
