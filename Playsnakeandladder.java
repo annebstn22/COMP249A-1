@@ -53,9 +53,9 @@ public class Playsnakeandladder {
 
 		
 		
-		//LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
+		LadderAndSnake game = new LadderAndSnake(numPlayers, playersArray);
 
-		//game.play();
+		game.play();
 
 
 		/* Player.playerOrder(playerArray);

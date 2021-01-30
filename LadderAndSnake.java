@@ -11,29 +11,28 @@ public class LadderAndSnake{
     // SNAKES_HEADS_AND_TAILS[0][0] --> snake 1's tile nb; 16 1
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
-    private Player[] players;
-    private Players[] playerss;
+    private Players[] players;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
     private int nbPlayers; // could probably remove
 
 
     //constructor with initial Player class
-    public LadderAndSnake(int nbPlayers, Player[] players) {
+    /*public LadderAndSnake(int nbPlayers, Player[] players) {
         this.nbPlayers = nbPlayers;
-        this.players = new Player[players.length];
+        this.players = new Players[players.length];
         for (int i = 0; i < players.length; i++){
             this.players[i] = new Player(players[i].getPlayerName());
         }
         // add players to array "players"
-    }
+    }*/
 
     //constructor with Players class
     public LadderAndSnake(int nbPlayers, Players[] players) {
         this.nbPlayers = nbPlayers;
-        this.playerss = new Players [players.length];
+        this.players = new Players [players.length];
         for (int i = 0; i < players.length; i++){
-            this.players[i] = new Player(players[i].getPlayerName());
+            this.players[i] = new Players(players[i].getPlayerName());
         }
         // add players to array "players"
     }
@@ -94,6 +93,16 @@ public class LadderAndSnake{
                     System.out.print(" ");
                     }
                 }
+                System.out.println();
+                for (int j = 0; j<BOARD_SIZE; j++){
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getIsActionTile()){
+                        System.out.print(" | ->"+ ladderAndSnakeGrid[10*(i+1)-j-1].getEndTile()+" ");
+                    }
+                    else {
+                        System.out.print(" |      ");
+                    }
+
+                }
                 printRowLeft = false;
 
             // for increasing rows  i.e 1, 2, 3, 4...
@@ -104,14 +113,23 @@ public class LadderAndSnake{
                         System.out.print(" ");
                     } 
                 }
+                System.out.println();
+                for (int j = BOARD_SIZE - 1; j >=0; j--){
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getIsActionTile()){
+                        System.out.print(" | ->"+ ladderAndSnakeGrid[10*(i+1)-j-1].getEndTile()+" ");
+                    }
+                    else {
+                        System.out.print(" |      ");
+                    }
+
+                }
+
                 printRowLeft = true;
             }
             System.out.println("  |");
 
             //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
-            for (int j = 0; j<BOARD_SIZE; j++){
-                System.out.print(" |      ");
-            }
+        
             System.out.println("  |");
             System.out.println(" ----------------------------------------------------------------------------------");
             
