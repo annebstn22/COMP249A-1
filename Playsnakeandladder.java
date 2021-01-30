@@ -9,6 +9,9 @@ public class Playsnakeandladder {
 
 		System.out.println("\nWelcome to Snakes And Ladders!\n");
 
+		System.out.print("\nPlease enter your name: \n");
+		String userName = userInput.nextLine();
+
 		// User Input Validation 
 		System.out.println("Please enter amount of players (2-4 players):");
 		int numPlayers = userInput.nextInt();
@@ -27,13 +30,17 @@ public class Playsnakeandladder {
 		// Create array of players
 		Player[] playerArray = new Player[numPlayers];
 		
+		
+
 		for (int i=0; i < numPlayers; i++) {
 			playerArray[i] = new Player("Player "+Integer.toString(i+1));
 		}
 
 		Players[] playersArray = new Players[numPlayers];
+		
+		playersArray[0] = new Players(userName);
 
-		for (int i=0; i < numPlayers; i++) {
+		for (int i=1; i < numPlayers; i++) {
 			playersArray[i] = new Players(LadderAndSnake.nameGenerator());
 		}
 
