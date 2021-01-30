@@ -75,20 +75,26 @@ public class LadderAndSnake{
         for (int i = BOARD_SIZE - 1; i>=0; i--){
             if(printRowLeft){
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() > 99){
+                        System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+"| ");
+                    } else {
+                    System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" | ");
+                    }
                 }
                 printRowLeft = false;
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+ "  } ");
-                    }else{
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
+                        System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+ "  | ");
+                    }else {
+                        System.out.print(" | "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" | ");
                     }
                     printRowLeft = true;
                 }
             }
             System.out.println();
+            System.out.println("-----------------------------------------------------------------------");
+            
         }
 
     }
