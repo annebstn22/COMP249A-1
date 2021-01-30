@@ -42,7 +42,8 @@ public class Playsnakeandladder {
 		playersArray[0] = new Players(userName);
 
 		for (int i=1; i < numPlayers; i++) {
-			playersArray[i] = new Players(Players.randNames[(int)Math.random()*100]);
+			int x =(int)(Math.random()*100);
+			playersArray[i] = new Players(Players.randNames[x]);
 		}
 
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
