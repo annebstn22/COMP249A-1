@@ -11,12 +11,16 @@ public class Playsnakeandladder {
 		
 		System.out.print("\nPlease enter your name: ");
 		String userName = userInput.nextLine();
+		String playerLimit;
 		int maxPlayers;
-		System.out.print("Hello " + userName + " ! Would you like to play extreme mode? (Y/N)");
-		if (userInput.next().equals("Y"))
-			maxPlayers = 100;
-		else 
-			maxPlayers = 4;
+		do{
+			System.out.print( userName + ", Would you like to play extreme mode? (Y/N)");
+			 playerLimit = userInput.next();
+			if (playerLimit.equals("Y") || playerLimit.equals("y") )
+		maxPlayers = 100;
+	else 
+		maxPlayers = 4;}while(!(playerLimit.equals("Y") || playerLimit.equals("y") || playerLimit.equals("N") || playerLimit.equals("n")) );
+		
 
 		// User Input Validation 
 		System.out.println("Please enter amount of players (2-"+ maxPlayers + " players): ");
@@ -76,9 +80,9 @@ public class Playsnakeandladder {
 	}
 
 	public static void printEndScreen() {
-				System.out.println("<-------------------------------->");
-				System.out.println("<---------> GAME OVER <---------->");
-				System.out.println("<-------------------------------->");
+				System.out.println("\n|<---------------------------------------------------------->|");
+				System.out.println("|<--------------------->| GAME OVER |<---------------------->|");
+				System.out.println("|<---------------------------------------------------------->|\n");
 			}
 	} 
 	
