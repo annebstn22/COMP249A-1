@@ -28,17 +28,8 @@ public class Playsnakeandladder {
 		}
 		
 		// Create array of players
-		Player[] playerArray = new Player[numPlayers];
-		
-		
-
-		for (int i=0; i < numPlayers; i++) {
-			playerArray[i] = new Player("Player "+Integer.toString(i+1));
-		}
-
 		Players[] playersArray = new Players[numPlayers];
 		
-	
 		playersArray[0] = new Players(userName);
 
 		for (int i=1; i < numPlayers; i++) {
@@ -62,7 +53,7 @@ public class Playsnakeandladder {
 
 		
 		
-		LadderAndSnake game = new LadderAndSnake(numPlayers, playersArray);
+		LadderAndSnake game = new LadderAndSnake(playersArray);
 
 		game.play();
 
