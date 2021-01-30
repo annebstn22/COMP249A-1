@@ -23,7 +23,7 @@ public class Players {
     //method to randomly flipDice -- assign 
     //player a diceValue and then sort in descending order
     public static void flipNsort(Players[] gamePlayers, int startPos, int endPos){
-        int numOfPlayers = gamePlayers.length;
+        //int numOfPlayers = gamePlayers.length;
         //sort in decreasing order
 
         //everyone flips their dice
@@ -33,7 +33,7 @@ public class Players {
 
         //sorting of players in decreasing order
         for (int i = startPos; i <= endPos - 1; i++){
-            for (int j = i + 1; j < numOfPlayers; j++){
+            for (int j = i + 1; j <= endPos; j++){
                 if (gamePlayers[i].getDiceValue() < gamePlayers[j].getDiceValue()){
                     Players temp = gamePlayers[i];
                     gamePlayers[i]=gamePlayers[j];
