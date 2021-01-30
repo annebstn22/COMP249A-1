@@ -60,7 +60,7 @@ public class Playsnakeandladder {
 
 		
 		
-		LadderAndSnake game = new LadderAndSnake(numPlayers, playersArray);
+		LadderAndSnake game = new LadderAndSnake(playersArray);
 
 		game.play();
 
