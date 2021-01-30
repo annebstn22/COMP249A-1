@@ -7,8 +7,10 @@ public class Playsnakeandladder {
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
 
+		System.out.println("\nWelcome to Snakes And Ladders!\n");
+
 		// User Input Validation 
-		System.out.println("Enter amount of players :");
+		System.out.println("Please enter amount of players (2-4 players):");
 		int numPlayers = userInput.nextInt();
 		while ((numPlayers < 2 || numPlayers > 4 ) ) {
 			numChances++;
@@ -38,16 +40,22 @@ public class Playsnakeandladder {
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
 		//Players.printPlayerArray(playersArray);
 
-		System.out.println("you've chosen " + numPlayers + " players");
-		System.out.println("Ordering players");
+		System.out.println("\nYou've chosen " + numPlayers + " players!\n");
+		System.out.println("Ordering players...\n");
 		Players.orderPlayers(playersArray, 0, playersArray.length-1);
-		Players.printPlayerArray(playersArray);
+		
+		
+		System.out.print("The final order of players is: \n- ");
+        for (int i=0; i < playersArray.length ; i++) {
+			System.out.print(playersArray[i].getPlayerName() + " - ");
+		}
+		System.out.println("\n\n----  Let's start the game!  ----\n");
 
 		
 		
-		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
+		//LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		game.play();
+		//game.play();
 
 
 		/* Player.playerOrder(playerArray);
