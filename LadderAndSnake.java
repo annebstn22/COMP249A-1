@@ -65,28 +65,40 @@ public class LadderAndSnake{
         for (int i = BOARD_SIZE - 1; i>=0; i--){
 
             //TO DO: modify for loop to print players on tile
-            for (int j = 0; j<BOARD_SIZE; j++){
-                System.out.print(" |      ");
-            }
-            System.out.println("  |");
+            
 
-            // for decreasing rows i.e 100, 99, 98...
+            // DECREASING ROWS i.e 100, 99, 98...
             if(printRowLeft){
 
+                //PRINTS PLAYERS ON TILES 
+                for (int j = 0; j<BOARD_SIZE; j++){
+                    System.out.print(" |      ");
+                }
+                System.out.println("  |");
+
+                // PRINTS ROW WITH NB OF TILE
                 for (int j = 0; j<BOARD_SIZE; j++){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
                     printNbRow(currentTile);
                 }
                 System.out.println("  |");
 
+                //PRINTS ROW WITH ENDING TILE "->""
                 for (int j = 0; j<BOARD_SIZE; j++){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
                     printAction (currentTile);
                 }
                 printRowLeft = false;
 
-            // for increasing rows  i.e 1, 2, 3, 4...
+            // INCREASING ROWS  i.e 1, 2, 3, 4...
             } else {
+                //PRINTS PLAYERS ON TILES 
+                for (int j = 0; j<BOARD_SIZE; j++){
+                    System.out.print(" |      ");
+                }
+                System.out.println("  |");
+
+                // PRINTS ROW WITH NB OF TILE
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
                     printNbRow(currentTile);
@@ -94,6 +106,7 @@ public class LadderAndSnake{
 
                 System.out.println("  |");
 
+                //PRINTS ROW WITH ENDING TILE "->""
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
                     Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
                     printAction(currentTile);
