@@ -124,6 +124,7 @@ public class LadderAndSnake{
                 }
                 printRowLeft = true;
             }
+            
             System.out.println("  |");
             System.out.println(" ----------------------------------------------------------------------------------");
 
