@@ -24,7 +24,8 @@ public class Player {
 
 		flipNsort(players);
 		
-		
+	
+
 		for (int i=0; i < players.length; i++) {
 			System.out.println(players[i]);
 		}
@@ -137,17 +138,14 @@ public class Player {
 
 
 
-public void printDiceResults(Player[] array){
-	Player[] copiedArray = new Player[array.length];
-		for (int i=0 ; i < copiedArray.length; i++){
-			copiedArray[i] = new Player(array[i]);
-		}
+ 	public void printDiceResults(Player[] array){
 
-	for (int i=0; i < copiedArray.length; i++) {
-		System.out.println(copiedArray[i]);
+
+	for (int i=0; i < array.length; i++) {
+		System.out.println(array[i]);
 	}
 	System.out.println();
-}
+	}
 
 
 
@@ -183,10 +181,11 @@ public void printDiceResults(Player[] array){
 			return true;
 		}
 		else if (array.length == 2){
-			System.out.println("There is a tie between"+ array[0] +" and "+ array[1]);
+			System.out.println("There is a tie between"+ array[0] +" and "+ array[1] + " . Attemmpting to break tie.");
 			while (array[0] == array[1]){
 				flipNsort(array);
 			}
+			array.printDiceResults();
 			array[0] = finalArray[x];
 			array[1] = finalArray[x+1];
 			return true;
