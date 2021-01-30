@@ -12,7 +12,7 @@ public class Playsnakeandladder {
 		// User Input Validation 
 		System.out.println("Please enter amount of players (2-4 players):");
 		int numPlayers = userInput.nextInt();
-		while ((numPlayers < 2 || numPlayers > 4 ) ) {
+		while (numPlayers < NB_PLAYERS_MIN || numPlayers > NB_PLAYERS_MAX) { // to change back
 			numChances++;
 			if (numChances == 4) {
 				System.out.println("You've run out of chances");

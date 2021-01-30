@@ -48,6 +48,7 @@ public class Players {
         int endPos = start;
 
         flipNsort(gamePlayers, start, end);
+        System.out.println("Current player order: ");
         printPlayerArray(gamePlayers);
 
         for (int i = startPos; i < end; i = startPos){
@@ -70,17 +71,16 @@ public class Players {
                 }
 
                 System.out.println(" and " + gamePlayers[endPos].getPlayerName()+".\n");
-			    System.out.print("Attempting to break tie.\n");
+			    System.out.print("Attempting to break tie.\n\n");
                 orderPlayers(gamePlayers, startPos, endPos);
-                for (int k=startPos; k< endPos; k++){
+                System.out.println("Tie broken with:");
+                for (int k=startPos; k<= endPos; k++){
                     System.out.println(gamePlayers[k] + " ");
                     }
                 System.out.println();
                 startPos = endPos + 1;
                 endPos = startPos;
             }
-
-            printPlayerArray(gamePlayers);
             System.out.println();
         }
     }
