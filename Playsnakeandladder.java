@@ -26,13 +26,13 @@ public class Playsnakeandladder {
 		Player[] playerArray = new Player[numPlayers];
 		
 		for (int i=0; i < numPlayers; i++) {
-			playerArray[i] = new Player("player "+Integer.toString(i+1));
+			playerArray[i] = new Player("Player "+Integer.toString(i+1));
 		}
 
 		Players[] playersArray = new Players[numPlayers];
 
 		for (int i=0; i < numPlayers; i++) {
-			playersArray[i] = new Players("player "+Integer.toString(i+1));
+			playersArray[i] = new Players("Player "+Integer.toString(i+1));
 		}
 
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
