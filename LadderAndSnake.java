@@ -12,6 +12,7 @@ public class LadderAndSnake{
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
     private Player[] players;
+    private Players[] playerss;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
     private int nbPlayers;
@@ -20,6 +21,15 @@ public class LadderAndSnake{
     public LadderAndSnake(int nbPlayers, Player[] players) {
         this.nbPlayers = nbPlayers;
         this.players = new Player[players.length];
+        for (int i = 0; i < players.length; i++){
+            this.players[i] = new Player(players[i].getPlayerName());
+        }
+        // add players to array "players"
+    }
+
+    public LadderAndSnake(int nbPlayers, Players[] players) {
+        this.nbPlayers = nbPlayers;
+        this.playerss = new Players [players.length];
         for (int i = 0; i < players.length; i++){
             this.players[i] = new Player(players[i].getPlayerName());
         }

@@ -36,13 +36,16 @@ public class Playsnakeandladder {
 		}
 
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
-		Players.printPlayerArray(playersArray);
+		//Players.printPlayerArray(playersArray);
+
+		System.out.println("you've chosen " + numPlayers + " players");
+		System.out.println("Ordering players");
 		Players.orderPlayers(playersArray, 0, playersArray.length-1);
 		Players.printPlayerArray(playersArray);
 
-		System.out.println("you've chosen " + numPlayers + " players");
 		
-		//LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
+		
+		//LadderAndSnake game = new LadderAndSnake(numPlayers, playersArray);
 
 		//game.play();
 

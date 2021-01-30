@@ -12,13 +12,13 @@ public class Players {
    }
 
    public Players(String playerName) {
-    this.diceValue = 0;
-    this.boardPos = 0;
-    this.playerName = playerName;
-}
+       this.diceValue = 0;
+       this.boardPos = 0;
+       this.playerName = playerName;
+    }
 
    public void flipDice() {
-    this.diceValue = (int) ((Math.random() * 6 + 1));
+       this.diceValue = (int) ((Math.random() * 6 + 1));
     }
 
     //method to randomly flipDice -- assign 
@@ -42,13 +42,9 @@ public class Players {
                 }
             }
         }
-
-
-
     }
 
     public static void orderPlayers(Players[] gamePlayers, int start, int end){
-
 
         int startPos = start;
         int endPos = start;
@@ -67,16 +63,15 @@ public class Players {
                     endPos++;
                 } 
             }
-    
-            
+
             if (startPos == endPos ){ // check if no duplicates
-                if (endPos < end){ // check that not at end of array
+                //if (endPos < end){ // check that not at end of array
                     startPos = endPos+1;
                     endPos = startPos;
-                } else {
-                    System.out.println("All sorted until index " + endPos);
+                //} else {
+                   // System.out.println("All sorted until index " + endPos);
                     
-                }
+                //}
             } else {
                 orderPlayers(gamePlayers, startPos, endPos);
                 startPos = endPos + 1;
@@ -85,23 +80,12 @@ public class Players {
 
             printPlayerArray(gamePlayers);
             System.out.println();
-
         }
-
-        
-
     }
-
-    //start at index 0, find position of object before the following term is diff, 
-    // if startPos == endPos increment startPos and search for new endPos, flipNsort
-    // if endPos = 
-    // assign both value startPos and endPos --> flipNsort until 
-
-
 
    // getters and setters
    
-   public int getDiceValue(){
+    public int getDiceValue(){
        return this.diceValue;
     }
 
