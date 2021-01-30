@@ -3,18 +3,19 @@ public class Players {
     private int boardPos; //between 1 and 100 inclusively
     private String playerName;
 
+    //constructor
+    public Players(String playerName) {
+        this.diceValue = 0;
+        this.boardPos = 0;
+        this.playerName = playerName;
+     }
+
    //copy constructor
    public Players (Players player){
        this.diceValue = player.getDiceValue();
        this.boardPos = player.getBoardPos();
        this.playerName = player.getPlayerName();
    }
-
-   public Players(String playerName) {
-       this.diceValue = 0;
-       this.boardPos = 0;
-       this.playerName = playerName;
-    }
 
    public void flipDice() {
        this.diceValue = (int) ((Math.random() * 6 + 1));
@@ -23,15 +24,13 @@ public class Players {
     //method to randomly flipDice -- assign 
     //player a diceValue and then sort in descending order
     public static void flipNsort(Players[] gamePlayers, int startPos, int endPos){
-        //int numOfPlayers = gamePlayers.length;
-        //sort in decreasing order
 
-        //everyone flips their dice
+        //concerned players flip their dice
         for (int i = startPos; i <= endPos; i++){
             gamePlayers[i].flipDice();
         }
 
-        //sorting of players in decreasing order
+        //sort players in decreasing order
         for (int i = startPos; i <= endPos - 1; i++){
             for (int j = i + 1; j <= endPos; j++){
                 if (gamePlayers[i].getDiceValue() < gamePlayers[j].getDiceValue()){
@@ -53,22 +52,18 @@ public class Players {
 
         for (int i = startPos; i < end; i = startPos){
 
-            // increment endPos each time two consecutive terms are identical. endPos is the index of the last consecutive term
+            // increment endPos each time two consecutive terms are identical. loop until endPos is the index of the last consecutive term
             if (endPos < end){
                 while(endPos != end && gamePlayers[startPos].getDiceValue() == gamePlayers[endPos+1].getDiceValue()){
                     endPos++;
                 } 
             }
 
-            if (startPos == endPos ){ // check if no duplicates
+            if (startPos == endPos ){ // move to next index if no duplicates
                 //if (endPos < end){ // check that not at end of array
                     startPos = endPos+1;
                     endPos = startPos;
-                //} else {
-                   // System.out.println("All sorted until index " + endPos);
-                    
-                //}
-            } else {
+            } else { // order portion of array with duplicates then move to following index
                 orderPlayers(gamePlayers, startPos, endPos);
                 startPos = endPos + 1;
                 endPos = startPos;
