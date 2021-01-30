@@ -12,11 +12,13 @@ public class LadderAndSnake{
     // SNAKES_HEADS_AND_TAILS[0][1] --> snake 1s endTile; 6 38
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
     private Player[] players;
+    private Players[] playerss;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
-    private int nbPlayers;
+    private int nbPlayers; // could probably remove
 
 
+    //constructor with initial Player class
     public LadderAndSnake(int nbPlayers, Player[] players) {
         this.nbPlayers = nbPlayers;
         this.players = new Player[players.length];
@@ -26,6 +28,17 @@ public class LadderAndSnake{
         // add players to array "players"
     }
 
+    //constructor with Players class
+    public LadderAndSnake(int nbPlayers, Players[] players) {
+        this.nbPlayers = nbPlayers;
+        this.playerss = new Players [players.length];
+        for (int i = 0; i < players.length; i++){
+            this.players[i] = new Player(players[i].getPlayerName());
+        }
+        // add players to array "players"
+    }
+
+    //excluding snakes and ladders, this gets the tile player has landed on (before any snake ladder action if any)
     public int getEndPosition(int flipDice, int playerArrayPos){
         if (players[playerArrayPos].getBoardPos() + flipDice <= 100){
             return players[playerArrayPos].getBoardPos() + flipDice;
@@ -38,10 +51,6 @@ public class LadderAndSnake{
     //random integer between 1 and 6
     static public int flipDice() {
         return (int) ((Math.random() * NB_DICE_FACES + 1));
-    }
-
-    public void playerOrder(){
-        //figure out order of player
     }
 
     public void buildGrid(){
@@ -63,43 +72,59 @@ public class LadderAndSnake{
                 ladderAndSnakeGrid[SNAKE_AND_LADDERS[i][0]-1].setTileType(snakeIcon);
             }
         }
-
-        //loop to set snakes
-
-        //loop to set ladders
     }
 
     public void printGrid(){
         //--> figure out how to indicate if snake / ladder -- text? ladder --> 29 / snake --> 10
         boolean printRowLeft = true;
+        System.out.println(" ----------------------------------------------------------------------------------");
         for (int i = BOARD_SIZE - 1; i>=0; i--){
+
+            //TO DO: modify for loop to print players on tile
+            for (int j = 0; j<BOARD_SIZE; j++){
+                System.out.print(" |      ");
+            }
+            System.out.println("  |");
+
+            // for decreasing rows i.e 100, 99, 98...
             if(printRowLeft){
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
+                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() <100){
+                    System.out.print(" ");
+                    }
                 }
                 printRowLeft = false;
+
+            // for increasing rows  i.e 1, 2, 3, 4...
             }else{
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
+                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
                     if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+ "  } ");
-                    }else{
-                        System.out.print(" { "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType()+" } ");
-                    }
-                    printRowLeft = true;
+                        System.out.print(" ");
+                    } 
                 }
+                printRowLeft = true;
             }
-            System.out.println();
+            System.out.println("  |");
+
+            //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
+            for (int j = 0; j<BOARD_SIZE; j++){
+                System.out.print(" |      ");
+            }
+            System.out.println("  |");
+            System.out.println(" ----------------------------------------------------------------------------------");
+            
         }
-
     }
-
-    
 
     public void play(){
 
         // playerOrder(); -- to be added later
         buildGrid();
         boolean winner = false;
+
+        // play until winner
         do{
             for(int i=0;i<players.length; i++){
 
@@ -108,28 +133,34 @@ public class LadderAndSnake{
                 int landingTile = getEndPosition(diceRoll, i) - 1;
                 int endTile = ladderAndSnakeGrid[landingTile].getEndTile();
                 String playerName = players[i].getPlayerName();
-                int playerBoardPos = players[i].getBoardPos();
+                //int playerBoardPos = players[i].getBoardPos();
 
-                System.out.println("Board Position before: " + playerBoardPos );
+
+                System.out.println("Board Position of " + playerName + " before: " + players[i].getBoardPos() );
+                System.out.println(playerName + " rolled a " + diceRoll + ".");
 
                 players[i].setBoardPos(endTile); // Change player position 
 
-                System.out.println("Board Position after: " + playerBoardPos );
-                
+                //Check for action tile (snake or ladder)
+                if (ladderAndSnakeGrid[landingTile].getIsActionTile()){ 
+                    if (ladderAndSnakeGrid[landingTile].getIsSnake()){
+                        System.out.println("Uh Oh Snake! Slither down to tile: " + ladderAndSnakeGrid[landingTile].getEndTile() );
+                    } else if (ladderAndSnakeGrid[landingTile].getIsLadder()){
+                        System.out.println("Youpi Ladder!!! Climb up to tile: " + ladderAndSnakeGrid[landingTile].getEndTile());
+                    }
+                } 
+
+                System.out.println("Board Position of " + playerName + " after: " + players[i].getBoardPos());
+                System.out.println(playerName + " has moved to position: " + endTile + ".");
+
                 if (endTile == 100){ //Check for winner
                     System.out.println(playerName + " won!");
                     winner = true;
-                } else if (ladderAndSnakeGrid[landingTile].getIsActionTile()){ //Check for Action Tile
-                    if (ladderAndSnakeGrid[landingTile].getIsSnake()){
-                        System.out.println("Uh Oh Snake!");
-                    } else if (ladderAndSnakeGrid[landingTile].getIsLadder()){
-                        System.out.println("Youpi Ladder!!!");
-                    }
+                    break;
                 } 
-                System.out.println(playerName + " rolled a " + diceRoll + ".");
-                System.out.println(playerName + " has moved to position: " + endTile + ".");
-                printGrid();
+                System.out.println();
             }
+            printGrid(); 
         } while (!winner);
 
         //display closing message
