@@ -23,25 +23,36 @@ public class Playsnakeandladder {
 		}
 		
 		// Create array of players
-		Player[] playerArray = new Player[numPlayers];
+		//Player[] playerArray = new Player[numPlayers];
 		
+		/*for (int i=0; i < numPlayers; i++) {
+			playerArray[i] = new Player("player "+Integer.toString(i+1));
+		}*/
+
+		Players[] playersArray = new Players[numPlayers];
+
 		for (int i=0; i < numPlayers; i++) {
-			playerArray[i] = new Player("player"+Integer.toString(i+1));
+			playersArray[i] = new Players("player "+Integer.toString(i+1));
 		}
+
+		//Players.flipNsort(playersArray, 0, playersArray.length-1);
+		Players.printPlayerArray(playersArray);
+		Players.orderPlayers(playersArray, 0, playersArray.length-1);
+		Players.printPlayerArray(playersArray);
 
 		System.out.println("you've chosen " + numPlayers + " players");
 		
-		LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
+		//LadderAndSnake game = new LadderAndSnake(numPlayers, playerArray);
 
-		game.play();
+		//game.play();
 
-		
-		Player.playerOrder(playerArray);
+
+		/* Player.playerOrder(playerArray);
 		System.out.println();
 		for (int i=0; i < numPlayers; i++) {
 			System.out.println(playerArray[i]);
 		
-		}
+		}*/
 
 		userInput.close();
 	}
