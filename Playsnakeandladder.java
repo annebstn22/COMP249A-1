@@ -38,10 +38,11 @@ public class Playsnakeandladder {
 
 		Players[] playersArray = new Players[numPlayers];
 		
+	
 		playersArray[0] = new Players(userName);
 
 		for (int i=1; i < numPlayers; i++) {
-			playersArray[i] = new Players(LadderAndSnake.nameGenerator());
+			playersArray[i] = new Players(Players.randNames[(int)Math.random()*100]);
 		}
 
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
