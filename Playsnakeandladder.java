@@ -34,7 +34,7 @@ public class Playsnakeandladder {
 		Players[] playersArray = new Players[numPlayers];
 
 		for (int i=0; i < numPlayers; i++) {
-			playersArray[i] = new Players("Player "+Integer.toString(i+1));
+			playersArray[i] = new Players(LadderAndSnake.nameGenerator());
 		}
 
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
