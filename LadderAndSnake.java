@@ -15,8 +15,7 @@ public class LadderAndSnake{
 
 
     private Tile[] ladderAndSnakeGrid = new Tile[NB_TILES]; 
-    private Player[] players;
-    private Players[] playerss;
+    private Players[] players;
     private final static String snakeIcon = "S";
     private final static String ladderIcon = "L";
     private int nbPlayers; // could probably remove
@@ -36,22 +35,13 @@ public class LadderAndSnake{
     
 
 
-    //constructor with initial Player class
-    public LadderAndSnake(int nbPlayers, Player[] players) {
-        this.nbPlayers = nbPlayers;
-        this.players = new Player[players.length];
-        for (int i = 0; i < players.length; i++){
-            this.players[i] = new Player(players[i].getPlayerName());
-        }
-        // add players to array "players"
-    }
 
     //constructor with Players class
     public LadderAndSnake(int nbPlayers, Players[] players) {
         this.nbPlayers = nbPlayers;
-        this.playerss = new Players [players.length];
+        this.players = new Players [players.length];
         for (int i = 0; i < players.length; i++){
-            this.players[i] = new Player(players[i].getPlayerName());
+            this.players[i] = new Players(players[i].getPlayerName());
         }
         // add players to array "players"
     }
@@ -106,35 +96,69 @@ public class LadderAndSnake{
 
             // for decreasing rows i.e 100, 99, 98...
             if(printRowLeft){
+
                 for (int j = 0; j<BOARD_SIZE; j++){
-                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType());
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() <100){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
+                    if (currentTile.getTileNb() <100){
                     System.out.print(" ");
+                    }
+                }
+                System.out.println("  |");
+
+                for (int j = 0; j<BOARD_SIZE; j++){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    if (currentTile.getIsActionTile()){
+                        System.out.print(" | ->"+ currentTile.getEndTile());
+                        if (currentTile.getEndTile()<100){
+                            System.out.print(" ");
+                        }
+                        if (currentTile.getEndTile()<10){
+                            System.out.print(" ");
+                        }
+                    }else {
+                        System.out.print(" |      ");
                     }
                 }
                 printRowLeft = false;
 
             // for increasing rows  i.e 1, 2, 3, 4...
-            }else{
+            } else {
                 for (int j = BOARD_SIZE - 1; j >=0; j--){
-                    System.out.print(" |  "+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb()+ ladderAndSnakeGrid[10*(i+1)-j-1].getTileType() + " ");
-                    if (ladderAndSnakeGrid[10*(i+1)-j-1].getTileNb() < 10){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
+                    if (currentTile.getTileNb() <100){
+                    System.out.print(" ");
+                    }
+                    if (currentTile.getTileNb() <10){
                         System.out.print(" ");
-                    } 
+                    }
+                }
+
+                System.out.println("  |");
+
+                for (int j = BOARD_SIZE - 1; j >=0; j--){
+                    Tile currentTile = ladderAndSnakeGrid[10*(i+1)-j-1];
+                    if (currentTile.getIsActionTile()){
+                        System.out.print(" | ->"+ currentTile.getEndTile());
+                        if (currentTile.getEndTile()<100){
+                            System.out.print(" ");
+                        }
+                        if (currentTile.getEndTile()<10){
+                            System.out.print(" ");
+                        }
+                    }else {
+                        System.out.print(" |      ");
+                    }
                 }
                 printRowLeft = true;
             }
             System.out.println("  |");
-
-            //TO DO: modify for loop such that if an action tile it prints "-> _endTile_"
-            for (int j = 0; j<BOARD_SIZE; j++){
-                System.out.print(" |      ");
-            }
-            System.out.println("  |");
             System.out.println(" ----------------------------------------------------------------------------------");
+
+            }
             
         }
-    }
 
     public void play(){
 
