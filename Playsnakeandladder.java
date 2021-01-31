@@ -53,6 +53,7 @@ public class Playsnakeandladder {
 		//Players.printPlayerArray(playersArray);
 
 		System.out.println("\nYou've chosen " + numPlayers + " players!\n");
+		System.out.println("Generating friends ...\n");
 		System.out.println("Ordering players...\n");
 		Players.orderPlayers(playersArray, 0, playersArray.length-1);
 		
@@ -70,13 +71,6 @@ public class Playsnakeandladder {
 		game.play();
 
 
-		/* Player.playerOrder(playerArray);
-		System.out.println();
-		for (int i=0; i < numPlayers; i++) {
-			System.out.println(playerArray[i]);
-		
-		}*/
-	
 		userInput.close();
 	}
 
@@ -85,6 +79,7 @@ public class Playsnakeandladder {
 				System.out.println("|<--------------------->| GAME OVER |<---------------------->|");
 				System.out.println("|<---------------------------------------------------------->|\n");
 			}
+	
 	} 
 	
 
