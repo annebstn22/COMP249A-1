@@ -39,6 +39,10 @@ public class Tile {
         return playerChar;
     }
 
+    public void setPlayerChar(char playerChar){
+        this.playerChar = playerChar;
+    }
+
 
     public boolean getIsActionTile(){
         return isActionTile;
