@@ -8,13 +8,14 @@ public class Playsnakeandladder {
 		System.out.println("\n<--------------------------------->");
 		System.out.println("  Welcome to Snakes And Ladders!");
 		System.out.println("<--------------------------------->");
+		System.out.println("Created by Anne Bastien and Julian Lussier");
 		
 		System.out.print("\nPlease enter your name: ");
 		String userName = userInput.nextLine();
 		String playerLimit;
 		int maxPlayers;
 		do{
-			System.out.print( userName + ", Would you like to play extreme mode? (Y/N)");
+			System.out.print( userName + ", Would you like to play extreme mode? (Y/N): \n");
 			 playerLimit = userInput.next();
 			if (playerLimit.equals("Y") || playerLimit.equals("y") )
 		maxPlayers = 100;
@@ -23,7 +24,7 @@ public class Playsnakeandladder {
 		
 
 		// User Input Validation 
-		System.out.println("Please enter amount of players (2-"+ maxPlayers + " players): ");
+		System.out.print("Please enter amount of players (2-"+ maxPlayers + " players): ");
 		int numPlayers = userInput.nextInt();
 		while (numPlayers < NB_PLAYERS_MIN || numPlayers > maxPlayers) { // to change back
 			numChances++;
