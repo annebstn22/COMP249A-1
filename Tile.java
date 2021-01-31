@@ -39,11 +39,19 @@ public class Tile {
 
     //Getters and Setters
     public void setPlayerName(String playerName){
-        if (playerName.length() >= 6 )
+        if (playerName.length() == 6 ){
             this.playerName = playerName;
-        else                                            // if player's name exceeds tile character width of 6. ex: |elizab|eth   |
-        this.playerName = playerName.substring(0,5);    //                                                         |  45  |  46  |
+        }
 
+        else if (playerName.length() < 6){
+            this.playerName = playerName;
+            for (int i=0 ; i < (6-playerName.length()) ; i++){
+                this.playerName = this.playerName + " ";
+            }
+        }
+        else{                                            // if player's name exceeds tile character width of 6. ex: |elizab|eth   |
+            this.playerName = playerName.substring(0,6);    //                                                         |  45  |  46  |
+    }
     }
 
     public String getPlayerName(){
@@ -52,7 +60,7 @@ public class Tile {
 
 
 
-    public boolean getPlayerChar(){
+    public boolean getHasPlayer(){
         return hasPlayer;
     }
 
