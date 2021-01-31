@@ -6,6 +6,7 @@ public class Tile {
     private boolean isSnake;
     private boolean isLadder;
     private String tileType;
+    private char playerChar; // first character of player name on tile
 
     //CONSTRUCTORS
 
@@ -33,6 +34,12 @@ public class Tile {
     }
 
     //Getters and Setters
+
+    public char getPlayerChar(){
+        return playerChar;
+    }
+
+
     public boolean getIsActionTile(){
         return isActionTile;
     }
