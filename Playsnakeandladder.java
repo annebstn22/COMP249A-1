@@ -5,10 +5,7 @@ public class Playsnakeandladder {
 		final int NB_PLAYERS_MIN = 2;
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
-		System.out.println("\n<--------------------------------->");
-		System.out.println("  Welcome to Snakes And Ladders!");
-		System.out.println("<--------------------------------->");
-		System.out.println("Created by Anne Bastien and Julian Lussier");
+		printWelcomeBanner();
 		
 		System.out.print("\nPlease enter your name: ");
 		String userName = userInput.nextLine();
@@ -79,6 +76,26 @@ public class Playsnakeandladder {
 				System.out.println("|<-------------------------------->| GAME OVER |<--------------------------------->|");
 				System.out.println("|<-------------------------------------------------------------------------------->|\n");
 			}
+			// elaborate welcome banner
+	public static void printWelcomeBanner(){
+		System.out.println("\n||<---------------------------------------------------------------------------------->||");
+		System.out.println("||                           _______________________________        ('-__--__--.      ||");
+		System.out.println("||                           | Welcome to Ladder and Snake |      (o)  (o)    \\       ||");
+		System.out.println("||                           |-----------------------------|      / / /     _  '.     ||");
+		System.out.println("||                                                              _/ / /    -' )   \\    ||");
+		System.out.println("||       Authors:  Anne Bastien and Julian Lussier             / o   o  .'  /     )   ||");
+		System.out.println("||       Date:  Feburary 8th 2021                             \\______-'   /    //|    ||");
+		System.out.println("||       Course: COMP 249                 /___________/         \\/ \\/   .'  /_|/|     ||");
+		System.out.println("||       Lab sections: ____ and G-X      /___________/                  .' /__|/|     ||");
+		System.out.println("||                                      /___________/              \\/_/ /  |__|/|     ||");
+		System.out.println("||                                     /___________/              /\\ _/    |__|/|     ||");
+		System.out.println("||                                    /___________/      AND     /\\        \\__\\/\\     ||");
+		System.out.println("||                                   /___________/       ---                 \\__\\/\\   ||");
+		System.out.println("||                                  /___________/                              \\__\\/\\ ||");
+		System.out.println("||                                 /___________/                                \\__\\/\\||");
+		System.out.println("||                                /___________/                                  \\_\\/\\||");
+		System.out.println("||<---------------------------------------------------------------------------------->||\n");
+	}
 	
 	} 
 	
