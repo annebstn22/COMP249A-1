@@ -6,7 +6,8 @@ public class Tile {
     private boolean isSnake;
     private boolean isLadder;
     private String tileType;
-    private char playerChar; // first character of player name on tile
+    private boolean hasPlayer; // first character of player name on tile
+    private String playerName; // name of player on tile
 
     //CONSTRUCTORS
 
@@ -14,6 +15,7 @@ public class Tile {
     public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
         this.endTile = endTile;
+        this.hasPlayer= false;
         this.tileType = " ";
         if (tileNb == endTile){
             this.isActionTile = false; 
@@ -25,22 +27,37 @@ public class Tile {
         this.isActionTile = false;
         this.isLadder = false;
         this.isSnake = false;
+        this.hasPlayer= false;
     }
 
     public Tile(int tileNb){
         this.isActionTile = false;
         this.tileNb = tileNb;
         this.endTile = tileNb;
+        this.hasPlayer= false;
     }
 
     //Getters and Setters
+    public void setPlayerName(String playerName){
+        if (playerName.length() >= 6 )
+            this.playerName = playerName;
+        else                                            // if player's name exceeds tile character width of 6. ex: |elizab|eth   |
+        this.playerName = playerName.substring(0,5);    //                                                         |  45  |  46  |
 
-    public char getPlayerChar(){
-        return playerChar;
     }
 
-    public void setPlayerChar(char playerChar){
-        this.playerChar = playerChar;
+    public String getPlayerName(){
+        return playerName;
+    }
+
+
+
+    public boolean getPlayerChar(){
+        return hasPlayer;
+    }
+
+    public void setHasPlayer(boolean hasPlayer){
+        this.hasPlayer = hasPlayer;
     }
 
 
