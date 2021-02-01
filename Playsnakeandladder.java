@@ -82,7 +82,7 @@ public class Playsnakeandladder {
 
 
 	public static void loadingIcon(String word) throws InterruptedException {
-		System.out.println("\n");
+		System.out.println();
 		for (int i=0; i < 9; i++){
 			switch(i%4){
 				case 0:
@@ -105,6 +105,7 @@ public class Playsnakeandladder {
 			
 		}
 		System.out.print(word + "(done)\r");
+		System.out.println();
 	}
 
 	public static void printEndScreen() {
@@ -114,13 +115,13 @@ public class Playsnakeandladder {
 			}
 			// elaborate welcome banner
 	public static void printWelcomeBanner(){
-		System.out.println("\n||<---------------------------------------------------------------------------------->||");
-		System.out.println("||                           _______________________________        ('-__--__--.      ||");
-		System.out.println("||                           | Welcome to Ladder and Snake |      (o)  (o)    \\       ||");
+		System.out.println("\n||<-----------------------------------------------/-----------/---------------------->||");
+		System.out.println("||                           ____________________/__________ /      ('-__--__--.      ||");
+		System.out.println("||                           | Welcome to Ladder and Snake |/      (o)  (o)    \\      ||");
 		System.out.println("||                           |-----------------------------|      / / /     _  '.     ||");
-		System.out.println("||                                                              _/ / /    -' )   \\    ||");
-		System.out.println("||       Authors:  Anne Bastien and Julian Lussier             / o   o  .'  /     )   ||");
-		System.out.println("||       Date:  Feburary 8th 2021                             \\______-'   /    //|    ||");
+		System.out.println("||                                           /___________/      _/ / /    -' )   \\    ||");
+		System.out.println("||       Authors:  Anne Bastien and Julian Lussier______/      / o   o  .'  /     )   ||");
+		System.out.println("||       Date:  Feburary 8th 2021          /___________/      \\______-'   /    //|    ||");
 		System.out.println("||       Course: COMP 249                 /___________/         \\/ \\/   .'  /_|/|     ||");
 		System.out.println("||       Lab sections:  L-X and G-X      /___________/                  .' /__|/|     ||");
 		System.out.println("||                                      /___________/              \\/_/ /  |__|/|     ||");
@@ -130,7 +131,7 @@ public class Playsnakeandladder {
 		System.out.println("||                                  /___________/                              \\__\\/\\ ||");
 		System.out.println("||                                 /___________/                                \\__\\/\\||");
 		System.out.println("||                                /___________/                                  \\_\\/\\||");
-		System.out.println("||<---------------------------------------------------------------------------------->||\n");
+		System.out.println("||<------------------------------/-----------/--------------------------------------->||\n");
 	}
 	
 	} 
