@@ -75,7 +75,7 @@ public class Playsnakeandladder {
 
 
 	public static void loadingIcon(String word) throws InterruptedException {
-		System.out.println();
+		System.out.println("\n");
 		for (int i=0; i < 9; i++){
 			switch(i%4){
 				case 0:
@@ -97,6 +97,7 @@ public class Playsnakeandladder {
 			}
 			
 		}
+		System.out.print(word + "(done)\r");
 	}
 
 	public static void printEndScreen() {
