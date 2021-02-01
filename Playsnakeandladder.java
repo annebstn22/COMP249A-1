@@ -11,6 +11,8 @@ public class Playsnakeandladder {
 		String userName = userInput.nextLine();
 		String playerLimit;
 		int maxPlayers;
+		String gameContinue = "y";
+		do{
 		do{
 			System.out.print( userName + ", Would you like to play extreme mode? (Y/N): \n");
 			 playerLimit = userInput.next();
@@ -68,8 +70,13 @@ public class Playsnakeandladder {
 		LadderAndSnake game = new LadderAndSnake(playersArray);
 
 		game.play();
+		do{System.out.print("\nDo you want to Play again? (y/n): ");
+		gameContinue = userInput.next();
+		}while(!(gameContinue.equals("y") || gameContinue.equals("Y") || gameContinue.equals("n") || gameContinue.equals("N")));
+		
+	}while(gameContinue.equals("Y") || gameContinue.equals("y"));
 
-
+		System.out.println("\nThe program has termintated\n");
 		userInput.close();
 	}
 
@@ -115,9 +122,9 @@ public class Playsnakeandladder {
 		System.out.println("||       Authors:  Anne Bastien and Julian Lussier             / o   o  .'  /     )   ||");
 		System.out.println("||       Date:  Feburary 8th 2021                             \\______-'   /    //|    ||");
 		System.out.println("||       Course: COMP 249                 /___________/         \\/ \\/   .'  /_|/|     ||");
-		System.out.println("||       Lab sections: ____ and G-X      /___________/                  .' /__|/|     ||");
+		System.out.println("||       Lab sections:  L-X and G-X      /___________/                  .' /__|/|     ||");
 		System.out.println("||                                      /___________/              \\/_/ /  |__|/|     ||");
-		System.out.println("||                                     /___________/              /\\ _/    |__|/|     ||");
+		System.out.println("||                                     /___________/              / \\_/    |__|/|     ||");
 		System.out.println("||                                    /___________/      AND     /\\        \\__\\/\\     ||");
 		System.out.println("||                                   /___________/       ---                 \\__\\/\\   ||");
 		System.out.println("||                                  /___________/                              \\__\\/\\ ||");
