@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Playsnakeandladder {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		final int NB_PLAYERS_MIN = 2;
 		int  numChances = 0;
 		Scanner userInput = new Scanner(System.in);
@@ -49,9 +49,11 @@ public class Playsnakeandladder {
 		//Players.flipNsort(playersArray, 0, playersArray.length-1);
 		//Players.printPlayerArray(playersArray);
 
-		System.out.println("\nYou've chosen " + numPlayers + " players!\n");
-		System.out.println("Generating friends ...\n");
-		System.out.println("Ordering players...\n");
+	System.out.println("\nYou've chosen " + numPlayers + " players!\n");
+		loadingIcon("Generating friends ...");
+		
+		loadingIcon("Ordering players...");
+		
 		Players.orderPlayers(playersArray, 0, playersArray.length-1);
 		
 		
@@ -69,6 +71,32 @@ public class Playsnakeandladder {
 
 
 		userInput.close();
+	}
+
+
+	public static void loadingIcon(String word) throws InterruptedException {
+		System.out.println();
+		for (int i=0; i < 9; i++){
+			switch(i%4){
+				case 0:
+				System.out.print(word+"(|)\r");
+				Thread.sleep(500);
+				break;
+				case 1:
+				System.out.print(word+"(/)\r");
+				Thread.sleep(500);
+				break;
+				case 2:
+				System.out.print(word+"(-)\r");
+				Thread.sleep(500);
+				break;
+				case 3:
+				System.out.print(word+"(\\)\r");
+				Thread.sleep(500);
+				break;
+			}
+			
+		}
 	}
 
 	public static void printEndScreen() {
