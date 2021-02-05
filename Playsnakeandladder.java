@@ -1,4 +1,12 @@
 import java.util.Scanner;
+
+/**
+ * Playsnakeandladder
+ * 
+ * @author Anne Bastien
+ * @author Julian
+ * @version 1.0 Feb 5, 2021
+ */
 public class Playsnakeandladder {
 
 	public static void main(String[] args) throws InterruptedException {
