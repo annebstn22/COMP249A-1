@@ -1,3 +1,9 @@
+/**
+ * Tile class 
+ * <p>Class to define attributes of each tile on the board. <br>
+ * Attributes include: isSnake, isLadder, hasPlayer, name of player on tile, tile number 
+ * and end tile (dependant on whether it is the start of a snake or ladder.) </p>
+ */
 public class Tile {
 
     private int tileNb; // tile on grid
@@ -49,6 +55,12 @@ public class Tile {
     }
 
     //Getters and Setters
+    /**
+     * sets which player name is on Tile. <br>
+     * Player name must be 6 characters to fit in Tile when printed so spaces are either added or characters removed to fit 
+     * length requirements.
+     * @param playerName - name of player
+     */
     public void setPlayerName(String playerName){
         if (playerName.length() == 6 ){
             this.playerName = playerName;
@@ -64,66 +76,117 @@ public class Tile {
             this.playerName = playerName.substring(0,6);    //                                                         |  45  |  46  |
     }
     }
-
+    /**
+     * gets player name on tile
+     * @return - name of player on Tile
+     */
     public String getPlayerName(){
         return playerName;
     }
 
 
-
+    /**
+     * checks if a player exists on that tile 
+     * @return - true if has player or false if no player exists on that tile
+     */
     public boolean getHasPlayer(){
         return hasPlayer;
     }
-
+    /**
+     * sets hasPlayer to true or false
+     * @param hasPlayer - true or false
+     */
     public void setHasPlayer(boolean hasPlayer){
         this.hasPlayer = hasPlayer;
     }
 
-
+    /**
+     * checks if its an action tile
+     * @return - boolean
+     */
     public boolean getIsActionTile(){
         return isActionTile;
     }
-
+    /**
+     * sets isAction to true or false
+     * @param isAction - boolean
+     */
     public void setIsActionTile(boolean isAction){
         this.isActionTile = isAction;
     }
 
+    /**
+     * get tile number
+     * @return - tile number integer
+     */
     public int getTileNb(){
         return tileNb;
     }
-
+    /**
+     * 
+     * @param tileNb
+     */
     public void setTileNb( int tileNb){
         this.tileNb = tileNb;
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getEndTile(){
         return endTile;
     }
 
+    /**
+     * 
+     * @param endTile
+     */
     public void setEndTile(int endTile){
         this.endTile = endTile;
     }
 
+    /**
+     * 
+     * @return
+     */
     public boolean getIsSnake(){
         return isSnake;
     }
 
+    /**
+     * 
+     * @param isSnake
+     */
     public void setIsSnake(boolean isSnake){
         this.isSnake = isSnake;
     }
 
+    /**
+     * 
+     */
     public boolean getIsLadder(){
         return isLadder;
     }
 
+    /**
+     * 
+     * @param isLadder
+     */
     public void setIsLadder(boolean isLadder){
         this.isLadder= isLadder;
     }
 
+    /**
+     * 
+     */
     public String getTileType(){
         return this.tileType;
     }
 
+    /**
+     * 
+     */
     public void setTileType(String tileType){
         this.tileType = tileType;
     }
