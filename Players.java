@@ -1,9 +1,15 @@
 public class Players {
+     
     private int diceValue; //between 1 and 6 inclusively
     private int boardPos; //between 1 and 100 inclusively
     private String playerName;
 
     //constructor
+    /**
+     * players constructor
+     * sets dice value and board position to 0
+     * @param playerName - name of player
+     */
     public Players(String playerName) {
         this.diceValue = 0;
         this.boardPos = 0;
@@ -11,6 +17,11 @@ public class Players {
      }
 
    //copy constructor
+/**
+ * Players copy constructor 
+ * @param player
+ */
+
    public Players (Players player){
        this.diceValue = player.getDiceValue();
        this.boardPos = player.getBoardPos();
@@ -18,6 +29,9 @@ public class Players {
    }
 
    // array for random name generator
+
+   
+  
 
    public static String[] randNames = {"James","Mary","John","Patricia","Robert","Jennifer","Linda","Elizabeth","David","Barbara", 
    "William", "Michael",
@@ -31,14 +45,22 @@ public class Players {
 
   
 
-
+   /**
+    * Flips dice
+    */
 
    public void flipDice() {
        this.diceValue = (int) ((Math.random() * 6 + 1));
     }
 
-    //method to randomly flipDice -- assign 
-    //player a diceValue and then sort in descending order
+    
+    /**
+     * Flips all players in array and sorts in decreasing order
+     * 
+     * @param gamePlayers
+     * @param startPos
+     * @param endPos
+     */
     public static void flipNsort(Players[] gamePlayers, int startPos, int endPos){
 
         //concerned players flip their dice
@@ -57,6 +79,14 @@ public class Players {
             }
         }
     }
+
+    /**
+     * breaks ties between players and reorders them
+     * 
+     * @param gamePlayers
+     * @param start
+     * @param end
+     */
 
     public static void orderPlayers(Players[] gamePlayers, int start, int end){
 
@@ -102,31 +132,58 @@ public class Players {
     }
 
    // getters and setters
-   
+   /**
+    * gets dice value
+    * @return the dice value
+    */
     public int getDiceValue(){
        return this.diceValue;
     }
 
+    /**
+     * sets dice value
+     * @param diceValue
+     */
     public void setDiceValue(int diceValue){
         this.diceValue = diceValue;
     }
     
+
+    /**
+     * gets board position
+     * @return  board position
+     */
     public int getBoardPos(){
         return this.boardPos;
     }
 
+    /**
+     * sets board position
+     * @param boardPos
+     */
     public void setBoardPos(int boardPos){
         this.boardPos = boardPos;
     }
 
+    /**
+     * gets player name
+     * @return name of player
+     */
     public String getPlayerName(){
         return this.playerName;
     }
 
+    /**
+     * sets player name
+     * @param playerName
+     */
     public void setPlayerName(String playerName){
         this.playerName = playerName;
     }
-
+    /**
+     * prints all players from array of player objects to console
+     * @param gamePlayers
+     */
     static public void printPlayerArray (Players[] gamePlayers){
         for (int i=0; i < gamePlayers.length ; i++) {
 			System.out.println(gamePlayers[i]);
@@ -134,7 +191,10 @@ public class Players {
         }
         System.out.println();
     }
-
+    /**
+     * toString method 
+     * @return player name has dice value of x
+     */
     public String toString() {
 		return playerName + " has dice value of " + getDiceValue();
 	}

@@ -12,6 +12,11 @@ public class Tile {
     //CONSTRUCTORS
 
     // this would work if were settings tile individually --> change such that can set all snakes at once and all ladders at once
+    /**
+     * Tile constructor
+     * @param tileNb - number of tile in board
+     * @param endTile - tile at the end of snake or ladder
+     */
     public Tile(int tileNb, int endTile){
         this.tileNb = tileNb;
         this.endTile = endTile;
@@ -23,13 +28,19 @@ public class Tile {
             this.isActionTile = true;
         }
     }
+    /**
+     * Tile default cosntructor
+     */
     public Tile(){
         this.isActionTile = false;
         this.isLadder = false;
         this.isSnake = false;
         this.hasPlayer= false;
     }
-
+    /**
+     * Tile constructor 
+     * @param tileNb - number of tile in the board
+     */
     public Tile(int tileNb){
         this.isActionTile = false;
         this.tileNb = tileNb;
