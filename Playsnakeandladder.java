@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 /**
  * Playsnakeandladder
+ * plays the ladder and snake game where 2 to 4 people roll a dice and move on up the board with the added chance of 
+ * going up or down depending on whether they land on a ladder or snake respectively. <br> First to reach tile 100 wins!
  * 
  * @author Anne Bastien
- * @author Julian
+ * @author Julian Lussier
  * @version 1.0 Feb 5, 2021
  */
 public class Playsnakeandladder {
@@ -87,7 +89,11 @@ public class Playsnakeandladder {
 		System.out.println("\nThe program has termintated\n");
 		userInput.close();
 	}
-
+	/**
+	 * provides a visual indication that the program is working
+	 * @param word - sentence describing what is being calculated
+	 * @throws InterruptedException
+	 */
 
 	public static void loadingIcon(String word) throws InterruptedException {
 		System.out.println();
@@ -115,13 +121,18 @@ public class Playsnakeandladder {
 		System.out.print(word + "(done)\r");
 		System.out.println();
 	}
-
+	/**
+	 * prints game over is a fashionable display to console
+	 */
 	public static void printEndScreen() {
 				System.out.println("\n|<-------------------------------------------------------------------------------->|");
 				System.out.println("|<-------------------------------->| GAME OVER |<--------------------------------->|");
 				System.out.println("|<-------------------------------------------------------------------------------->|\n");
 			}
-			// elaborate welcome banner
+			
+			/**
+			 * Prints an elaborate welcome banner to the program
+			 */
 	public static void printWelcomeBanner(){
 		System.out.println("\n||<-----------------------------------------------/-----------/---------------------->||");
 		System.out.println("||                           ____________________/__________ /      ('-__--__--.      ||");
