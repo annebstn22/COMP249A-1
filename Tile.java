@@ -1,8 +1,8 @@
 /**
- * Tile class 
- * <p>Class to define attributes of each tile on the board. <br>
+ *
+ * Class to define attributes of each tile on the board. <br>
  * Attributes include: isSnake, isLadder, hasPlayer, name of player on tile, tile number 
- * and end tile (dependant on whether it is the start of a snake or ladder.) </p>
+ * and end tile (dependant on whether it is the start of a snake or ladder.)
  */
 public class Tile {
 

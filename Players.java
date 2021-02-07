@@ -1,7 +1,7 @@
 /**
- * Players class
- * <p>Players class defines a player and has a name, board position and current dive value. </p>
- * <p>Players can flip dice, sort players and break ties. </p> 
+ *
+ * Players class defines a player and has a name, board position and current dive value.
+ * Players can flip dice, sort players and break ties.
  */
 public class Players {
      

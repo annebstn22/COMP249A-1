@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Playsnakeandladder
+ *
  * plays the ladder and snake game where 2 to 4 people roll a dice and move on up the board with the added chance of 
  * going up or down depending on whether they land on a ladder or snake respectively. <br> First to reach tile 100 wins!
  * 

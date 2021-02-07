@@ -1,7 +1,7 @@
 
 /**
- * Class LadderAndSnake
- * <p>LadderAndSnake deals with the game board itself. Sets the board, prints the board, and plays the game using the players and the board </p>
+ *
+ * LadderAndSnake deals with the game board itself. Sets the board, prints the board, and plays the game using the players and the board
  */
 public class LadderAndSnake{
 
