@@ -253,7 +253,7 @@ public class LadderAndSnake{
             }
             printGrid(); 
         } while (!winner);
-        Playsnakeandladder.printEndScreen(); //display closing message
+        PlayLadderAndSnake.printEndScreen(); //display closing message
 
 
         

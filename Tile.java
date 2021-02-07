@@ -8,16 +8,25 @@ public class Tile {
 
     private int tileNb; // tile on grid
     public int endTile; // tile to move to if ladder or snake 
-    private boolean isActionTile; // normal tile or snake/ladder tile --> automatically set to false?
+    private boolean isActionTile; // normal tile or snake/ladder tile
     private boolean isSnake;
     private boolean isLadder;
-    private String tileType;
+    private String tileType; // "S" "L" or " " for board display
     private boolean hasPlayer; // first character of player name on tile
     private String playerName; // name of player on tile
 
     //CONSTRUCTORS
 
-    // this would work if were settings tile individually --> change such that can set all snakes at once and all ladders at once
+    /**
+     * Tile default cosntructor
+     */
+    public Tile(){
+        this.isActionTile = false;
+        this.isLadder = false;
+        this.isSnake = false;
+        this.hasPlayer= false;
+    }
+    
     /**
      * Tile constructor
      * @param tileNb - number of tile in board
@@ -34,15 +43,7 @@ public class Tile {
             this.isActionTile = true;
         }
     }
-    /**
-     * Tile default cosntructor
-     */
-    public Tile(){
-        this.isActionTile = false;
-        this.isLadder = false;
-        this.isSnake = false;
-        this.hasPlayer= false;
-    }
+    
     /**
      * Tile constructor 
      * @param tileNb - number of tile in the board
@@ -71,8 +72,7 @@ public class Tile {
             for (int i=0 ; i < (6-playerName.length()) ; i++){
                 this.playerName = this.playerName + " ";
             }
-        }
-        else{                                            // if player's name exceeds tile character width of 6. ex: |elizab|eth   |
+        } else {                                            // if player's name exceeds tile character width of 6. ex: |elizab|eth   |
             this.playerName = playerName.substring(0,6);    //                                                         |  45  |  46  |
     }
     }
@@ -83,7 +83,6 @@ public class Tile {
     public String getPlayerName(){
         return playerName;
     }
-
 
     /**
      * checks if a player exists on that tile 
@@ -123,7 +122,7 @@ public class Tile {
         return tileNb;
     }
     /**
-     * 
+     * set tile number
      * @param tileNb
      */
     public void setTileNb( int tileNb){
@@ -131,7 +130,7 @@ public class Tile {
     }
 
     /**
-     * 
+     * get end tile
      * @return
      */
     public int getEndTile(){
@@ -139,7 +138,7 @@ public class Tile {
     }
 
     /**
-     * 
+     * set end tile
      * @param endTile
      */
     public void setEndTile(int endTile){
@@ -147,7 +146,7 @@ public class Tile {
     }
 
     /**
-     * 
+     * check if snake head on tile
      * @return
      */
     public boolean getIsSnake(){
@@ -155,7 +154,7 @@ public class Tile {
     }
 
     /**
-     * 
+     * set whether snake head on tile or not
      * @param isSnake
      */
     public void setIsSnake(boolean isSnake){
@@ -163,14 +162,14 @@ public class Tile {
     }
 
     /**
-     * 
+     * check if ladder bottom on tile
      */
     public boolean getIsLadder(){
         return isLadder;
     }
 
     /**
-     * 
+     * set whether bottom of ladder on tile or not
      * @param isLadder
      */
     public void setIsLadder(boolean isLadder){
@@ -178,14 +177,14 @@ public class Tile {
     }
 
     /**
-     * 
+     * get tile type 
      */
     public String getTileType(){
         return this.tileType;
     }
 
     /**
-     * 
+     * set tile type
      */
     public void setTileType(String tileType){
         this.tileType = tileType;

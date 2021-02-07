@@ -35,9 +35,6 @@ public class Players {
 
    // array for random name generator
 
-   
-  
-
    public static String[] randNames = {"James","Mary","John","Patricia","Robert","Jennifer","Linda","Elizabeth","David","Barbara", 
    "William", "Michael",
    "Erica","Richard","Joseph","Thomas","Charles","Christopher","Susan","Jessica","Sarah","Karen","Nancy","Lisa","Daniel",
@@ -48,8 +45,6 @@ public class Players {
    "Brian","George","Edward","Ronald","Timothy","Jason","Jeffrey","Ryan","Jacob","Gary","Nicholas","Eric","Jonathan","Stephen",
    "Larry","Justin","Scott","Brandon","Benjamin","Samuel","Ruth","Frank","Gregory","Raymond","Alexander","Patrick" };
 
-  
-
    /**
     * Flips dice
     */
@@ -57,8 +52,7 @@ public class Players {
    public void flipDice() {
        this.diceValue = (int) ((Math.random() * 6 + 1));
     }
-
-    
+ 
     /**
      * Flips all players in array and sorts in decreasing order
      * 
@@ -66,6 +60,7 @@ public class Players {
      * @param startPos
      * @param endPos
      */
+
     public static void flipNsort(Players[] gamePlayers, int startPos, int endPos){
 
         //concerned players flip their dice
@@ -104,7 +99,7 @@ public class Players {
 
         for (int i = startPos; i < end; i = startPos){
 
-            // increment endPos each time two consecutive terms are identical. loop until endPos is the index of the last consecutive term
+            // increment endPos each time two consecutive terms are identical. loops until endPos is the index of the last consecutive term
             if (endPos < end){
                 while(endPos != end && gamePlayers[startPos].getDiceValue() == gamePlayers[endPos+1].getDiceValue()){
                     endPos++;
@@ -116,19 +111,25 @@ public class Players {
                     startPos = endPos+1;
                     endPos = startPos;
             } else { // order portion of array with duplicates then move to following index
+                
+                //Print out details about the tie
                 System.out.println("There is a tie between ");
 			    for (int k=startPos; k< endPos; k++){
-				System.out.print(gamePlayers[k].getPlayerName() + ", ");
+				    System.out.print(gamePlayers[k].getPlayerName() + ", ");
                 }
-
                 System.out.println(" and " + gamePlayers[endPos].getPlayerName()+".\n");
-			    System.out.print("Attempting to break tie.\n\n");
+                System.out.print("Attempting to break tie.\n\n");
+                
+                //Break tie between players
                 orderPlayers(gamePlayers, startPos, endPos);
+                
                 System.out.println("Tie broken with:");
                 for (int k=startPos; k<= endPos; k++){
                     System.out.println(gamePlayers[k] + " ");
-                    }
+                }
                 System.out.println();
+
+                //Increment indexes
                 startPos = endPos + 1;
                 endPos = startPos;
             }
