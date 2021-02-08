@@ -1,7 +1,7 @@
 
 /**
  * ------------------------------------------------------------------
- * Written by: Anne Bastien (40133471) and Julian Lussier (insert ID)
+ * Written by: Anne Bastien (40133471) and Julian Lussier (40131285)
  * COMP249
  * Assignment#1
  * Due Date: February 8th 2021
