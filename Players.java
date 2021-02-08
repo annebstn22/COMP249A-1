@@ -1,19 +1,29 @@
 /**
- *
- * Players class defines a player and has a name, board position and current dive value.
- * Players can flip dice, sort players and break ties.
+ * ------------------------------------------------------------------
+ * Written by: Anne Bastien (40133471) and Julian Lussier (insert ID)
+ * COMP249
+ * Assignment#1
+ * Due Date: February 8th 2021
+ * ------------------------------------------------------------------
  */
+
+/**
+ * The Players class defines a Ladder and Snake player who has a name, board position and current dice value.
+ * Players can flip the dice, sort players and break ties.
+ */
+
 public class Players {
      
     private int diceValue; //between 1 and 6 inclusively
     private int boardPos; //between 1 and 100 inclusively
     private String playerName;
 
-    //constructor
+    //CONSTRUCTORS
+
     /**
-     * players constructor
-     * sets dice value and board position to 0
-     * @param playerName - name of player
+     * Players constructor using player name
+     * sets dice value and board position to 0.
+     * @param playerName String - name of player
      */
     public Players(String playerName) {
         this.diceValue = 0;
@@ -21,11 +31,10 @@ public class Players {
         this.playerName = playerName;
      }
 
-   //copy constructor
-/**
- * Players copy constructor 
- * @param player 
- */
+    /**
+     * Players copy constructor 
+     * @param player Players 
+     */
 
    public Players (Players player){
        this.diceValue = player.getDiceValue();
@@ -34,10 +43,6 @@ public class Players {
    }
 
    // array for random name generator
-
-   
-  
-
    public static String[] randNames = {"James","Mary","John","Patricia","Robert","Jennifer","Linda","Elizabeth","David","Barbara", 
    "William", "Michael",
    "Erica","Richard","Joseph","Thomas","Charles","Christopher","Susan","Jessica","Sarah","Karen","Nancy","Lisa","Daniel",
@@ -49,22 +54,20 @@ public class Players {
    "Larry","Justin","Scott","Brandon","Benjamin","Samuel","Ruth","Frank","Gregory","Raymond","Alexander","Patrick" };
 
   
-
    /**
-    * Flips dice
+    * Flips dice and sets players diceValue to rolled number.
+    * Used for when ordering the players
     */
-
    public void flipDice() {
        this.diceValue = (int) ((Math.random() * 6 + 1));
     }
 
-    
     /**
-     * Flips all players in array and sorts in decreasing order
+     * Flips all players in array and sorts in decreasing order.
      * 
-     * @param gamePlayers
-     * @param startPos
-     * @param endPos
+     * @param gamePlayers Players[]
+     * @param startPos integer start index
+     * @param endPos integer end index
      */
     public static void flipNsort(Players[] gamePlayers, int startPos, int endPos){
 
@@ -86,11 +89,10 @@ public class Players {
     }
 
     /**
-     * breaks ties between players and reorders them
-     * 
-     * @param gamePlayers
-     * @param start
-     * @param end
+     * Breaks ties between players and reorders them.
+     * @param gamePlayers Players[] 
+     * @param start integer start index
+     * @param end integer end index
      */
 
     public static void orderPlayers(Players[] gamePlayers, int start, int end){
@@ -111,23 +113,30 @@ public class Players {
                 } 
             }
 
-            if (startPos == endPos ){ // move to next index if no duplicates
-                //if (endPos < end){ // check that not at end of array
-                    startPos = endPos+1;
-                    endPos = startPos;
-            } else { // order portion of array with duplicates then move to following index
+            if (startPos == endPos ){ 
+                // move to next index if no duplicates
+                startPos = endPos+1;
+                endPos = startPos;
+            } else { 
+                // order portion of array with duplicates then move to following index
+
+                //Narrate ordering of players
                 System.out.println("There is a tie between ");
 			    for (int k=startPos; k< endPos; k++){
-				System.out.print(gamePlayers[k].getPlayerName() + ", ");
+				    System.out.print(gamePlayers[k].getPlayerName() + ", ");
                 }
-
                 System.out.println(" and " + gamePlayers[endPos].getPlayerName()+".\n");
-			    System.out.print("Attempting to break tie.\n\n");
+                System.out.print("Attempting to break tie.\n\n");
+                
                 orderPlayers(gamePlayers, startPos, endPos);
+
                 System.out.println("Tie broken with:");
+
                 for (int k=startPos; k<= endPos; k++){
                     System.out.println(gamePlayers[k] + " ");
-                    }
+                }
+
+                //Increment indexes
                 System.out.println();
                 startPos = endPos + 1;
                 endPos = startPos;
@@ -136,9 +145,10 @@ public class Players {
         }
     }
 
-   // getters and setters
+   // Getters and Setters
+
    /**
-    * gets dice value
+    * gets dice value.
     * @return the dice value
     */
     public int getDiceValue(){
@@ -146,16 +156,15 @@ public class Players {
     }
 
     /**
-     * sets dice value
-     * @param diceValue
+     * sets dice value.
+     * @param diceValue integer
      */
     public void setDiceValue(int diceValue){
         this.diceValue = diceValue;
     }
     
-
     /**
-     * gets board position
+     * gets board position.
      * @return  board position
      */
     public int getBoardPos(){
@@ -163,15 +172,15 @@ public class Players {
     }
 
     /**
-     * sets board position
-     * @param boardPos
+     * sets board position.
+     * @param boardPos integer
      */
     public void setBoardPos(int boardPos){
         this.boardPos = boardPos;
     }
 
     /**
-     * gets player name
+     * gets player name.
      * @return name of player
      */
     public String getPlayerName(){
@@ -179,21 +188,22 @@ public class Players {
     }
 
     /**
-     * sets player name
-     * @param playerName
+     * sets player name.
+     * @param playerName String
      */
     public void setPlayerName(String playerName){
         this.playerName = playerName;
     }
+
     /**
-     * prints all players from array of player objects to console
-     * @param gamePlayers
+     * prints all players from array of player objects to console.
+     * @param gamePlayers Players[]
      */
     static public void printPlayerArray (Players[] gamePlayers){
         for (int i=0; i < gamePlayers.length ; i++) {
 			System.out.println(gamePlayers[i]);
-		
         }
+
         System.out.println();
     }
     /**

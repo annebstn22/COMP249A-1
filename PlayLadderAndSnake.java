@@ -1,14 +1,23 @@
-import java.util.Scanner;
 
 /**
- * PlayLadderAndSnake
+ * ------------------------------------------------------------------
+ * Written by: Anne Bastien (40133471) and Julian Lussier (insert ID)
+ * COMP249
+ * Assignment#1
+ * Due Date: February 8th 2021
+ * ------------------------------------------------------------------
+ */
+
+/**
+ * PlayLadderAndSnake 
  * plays the ladder and snake game where 2 to 4 people roll a dice and move on up the board with the added chance of 
  * going up or down depending on whether they land on a ladder or snake respectively. <br> First to reach tile 100 wins!
- * 
  * @author Anne Bastien
- * @author Julian Lussier
+ * @author Julian Lussier 
  * @version 1.0 Feb 5, 2021
  */
+
+import java.util.Scanner;
 public class PlayLadderAndSnake {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -41,7 +50,7 @@ public class PlayLadderAndSnake {
 			// User Input Validation - Allows 4 attempts then terminates
 			System.out.print("Please enter amount of players (2-"+ maxPlayers + " players): ");
 			int numPlayers = userInput.nextInt();
-			while (numPlayers < NB_PLAYERS_MIN || numPlayers > maxPlayers) { // to change back
+			while (numPlayers < NB_PLAYERS_MIN || numPlayers > maxPlayers) { 
 				numChances++;
 				
 				if (numChances == 4) {
@@ -54,7 +63,7 @@ public class PlayLadderAndSnake {
 				}
 			}
 		
-			// Create Array of players with randomly generates player names
+			// Create Array of players with randomly generated player names
 			Players[] playersArray = new Players[numPlayers];
 			
 			playersArray[0] = new Players(userName);

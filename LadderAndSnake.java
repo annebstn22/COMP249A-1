@@ -1,8 +1,17 @@
 
 /**
- *
+ * ------------------------------------------------------------------
+ * Written by: Anne Bastien (40133471) and Julian Lussier (insert ID)
+ * COMP249
+ * Assignment#1
+ * Due Date: February 8th 2021
+ * ------------------------------------------------------------------
+ */
+
+/**
  * LadderAndSnake deals with the game board itself. Sets the board, prints the board, and plays the game using the players and the board
  */
+
 public class LadderAndSnake{
 
     private final static int NB_DICE_FACES = 6;
@@ -18,40 +27,40 @@ public class LadderAndSnake{
 
     //constructor with Players class
 
-  /**
-   * LadderAndSnake constructor to create an array of players from players created in Players class
-   * @param players - array of object players
-   */
+    /**
+     * LadderAndSnake constructor to create an array of Players from the players created in Players class
+     * @param players Players[] - array of object players
+     */
     public LadderAndSnake(Players[] players) {
         this.players = new Players [players.length];
         for (int i = 0; i < players.length; i++){
             this.players[i] = new Players(players[i].getPlayerName());
         }
-        // add players to array "players"
     }
 
-    //excluding snakes and ladders, this gets the tile player has landed on (before any snake ladder action if any)
+    // excluding snakes and ladders, this gets the tile player has landed on (before any snake ladder action if any)
+
     /**
-     * method to get the new position of each player in the array of players
+     * method to get the new position of each player in the array of players.
      * 
-     * @param flipDice - the value of the dice flipped
-     * @param playerArrayPos - position of each player before the dice flip
+     * @param flipDice integer - the value of the dice flipped
+     * @param playerArrayPos integer - position of each player before the dice flip
      * @return integer value of board position of the player
      */
+
     public int getEndPosition(int flipDice, int playerArrayPos){
         if (players[playerArrayPos].getBoardPos() + flipDice <= 100){
             return players[playerArrayPos].getBoardPos() + flipDice;
         } else {
-
             return (100 - (flipDice - (100-players[playerArrayPos].getBoardPos())));
         }
     }
 
-    //random integer between 1 and 6
     /**
-     * generates random integer between 1 and 6
-     * @return - and integer between 1 and 6
+     * generates random integer between 1 and 6.
+     * @return - an integer between 1 and 6
      */
+
     static public int flipDice() {
         return (int) ((Math.random() * NB_DICE_FACES + 1));
     }
@@ -60,12 +69,12 @@ public class LadderAndSnake{
      * builds grid by setting each tile in the array in order from 1 to 100. <br>
      * Sets each end tile of a Tile depending on whether is has a snake or ladder.
      */
-    public void buildGrid(){
-        //loop to create grid of tiles numbered 1 - 100
 
+    public void buildGrid(){
+
+        //loop to create grid of tiles numbered 1 - 100
         for (int i=0; i<NB_TILES; i++){
             ladderAndSnakeGrid[i] = new Tile(i+1, i+1);
-            //System.out.print(ladderAndSnakeGrid[i].getTileNb()); //to check functioning well
         }
 
         for (int i=0; i<SNAKE_AND_LADDERS.length; i++){
@@ -80,18 +89,15 @@ public class LadderAndSnake{
             }
         }
     }
+
     /**
-     * prints grid to console
+     * prints grid to console.
      */
 
     public void printGrid(){
-        //--> figure out how to indicate if snake / ladder -- text? ladder --> 29 / snake --> 10
         boolean printRowLeft = true;
         System.out.println(" ----------------------------------------------------------------------------------");
         for (int i = BOARD_SIZE - 1; i>=0; i--){
-
-           
-            
 
             // DECREASING ROWS i.e 100, 99, 98...
             if(printRowLeft){
@@ -149,28 +155,29 @@ public class LadderAndSnake{
             }
             
         }
-        // method to print the tile number
-        /**
-         * method used in printGrid to print the tile number to the grid
-         * @param currentTile - current tile being printed
-         */
+
+    /**
+     * method used in printGrid to print the tile number to the grid.
+     * @param currentTile Tile - current tile being printed
+     * @see printGrid
+     */
+
     static private void printNbRow(Tile currentTile){
-    System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
-                if (currentTile.getTileNb() <100){
-                System.out.print(" ");
-                }
-                if (currentTile.getTileNb() <10){
-                    System.out.print(" ");
-                }
+        System.out.print(" |  "+ currentTile.getTileNb()+ currentTile.getTileType());
+        if (currentTile.getTileNb() <100) {
+            System.out.print(" ");
+        }
+        if (currentTile.getTileNb() <10) {
+            System.out.print(" ");
+        }
     }
 
-
-    // method to print the name of player on tile
     /**
      * prints the player on the tile. <br>
      * Limited to one player being named.
-     * @param currentTile - current tile being printed
+     * @param currentTile Tile - current tile being printed
      */
+
     static void printPlayerName(Tile currentTile){
         if (currentTile.getHasPlayer()){
             System.out.print(" |" + currentTile.getPlayerName());
@@ -179,13 +186,14 @@ public class LadderAndSnake{
             System.out.print(" |      ");
         }
 
-            currentTile.setHasPlayer(false);
+        currentTile.setHasPlayer(false);
     }
-    // method to print the endtile 
+
     /**
      * Prints the end tile of a tile if it's the beigning of a ladder or snake.
-     * @param currentTile - current tile being printed
+     * @param currentTile Tile - current tile being printed
      */
+
     static private void printAction(Tile currentTile){
         if (currentTile.getIsActionTile()){
             System.out.print(" | ->"+ currentTile.getEndTile());
@@ -195,17 +203,17 @@ public class LadderAndSnake{
             if (currentTile.getEndTile()<10){
                 System.out.print(" ");
             }
-        }else {
+        } else {
             System.out.print(" |      ");
         }
     }
+
     /**
      * method to play out the ladder and snake game. <br>
      * Rolls dice for each player, moves player to required tile, prints board after each round, declares winner once a player hits tile 100.
      */
     public void play(){
 
-        // playerOrder(); -- to be added later
         buildGrid();
         boolean winner = false;
 
@@ -218,8 +226,6 @@ public class LadderAndSnake{
                 int landingTile = getEndPosition(diceRoll, i) - 1;
                 int endTile = ladderAndSnakeGrid[landingTile].getEndTile();
                 String playerName = players[i].getPlayerName();
-                
-                //int playerBoardPos = players[i].getBoardPos();
 
                 
                 System.out.println("Board Position of " + playerName + " before: " + players[i].getBoardPos() );
@@ -244,7 +250,8 @@ public class LadderAndSnake{
                 ladderAndSnakeGrid[endTile-1].setPlayerName(playerName);
                 
 
-                if (endTile == 100){ //Check for winner
+                if (endTile == 100){ 
+                    //Check for winner
                     System.out.println(playerName + " won!");
                     winner = true;
                     break;
@@ -252,12 +259,10 @@ public class LadderAndSnake{
                 System.out.println();
             }
             printGrid(); 
+
         } while (!winner);
+
         PlayLadderAndSnake.printEndScreen(); //display closing message
-
-
-        
-
     }
 
 }
