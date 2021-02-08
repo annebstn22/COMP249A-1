@@ -9,9 +9,13 @@
  */
 
 /**
- * PlayLadderAndSnake 
- * plays the ladder and snake game where 2 to 4 people roll a dice and move on up the board with the added chance of 
- * going up or down depending on whether they land on a ladder or snake respectively. <br> First to reach tile 100 wins!
+ * The PlayLadderAndSnake class is the driver of the ladder and snake board game.
+ * Players are ordered based on a dice roll at the start of the game. 
+ * Those with the highest value start first and any tie is broken be rolling the dice again.<br>
+ * In normal mode, 2 to 4 people play. In extreme mode, up to 100 players can play. <br>
+ * Players roll the dice one by one and move on up the board with the added chance of <br>
+ * going up or down depending on whether they land on a ladder or snake respectively. <br> 
+ * First to reach tile 100 wins!
  * @author Anne Bastien
  * @author Julian Lussier 
  * @version 1.0 Feb 5, 2021
