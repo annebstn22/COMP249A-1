@@ -122,70 +122,52 @@ public class Tile {
     public int getTileNb(){
         return tileNb;
     }
-    /**
-     * 
-     * @param tileNb
-     */
+
     public void setTileNb( int tileNb){
         this.tileNb = tileNb;
     }
 
-    /**
-     * 
-     * @return
-     */
+  
     public int getEndTile(){
         return endTile;
     }
 
-    /**
-     * 
-     * @param endTile
-     */
+ 
     public void setEndTile(int endTile){
         this.endTile = endTile;
     }
 
-    /**
-     * 
-     * @return
-     */
+ 
     public boolean getIsSnake(){
         return isSnake;
     }
 
-    /**
-     * 
-     * @param isSnake
-     */
+ 
     public void setIsSnake(boolean isSnake){
         this.isSnake = isSnake;
     }
 
-    /**
-     * 
-     */
+  
     public boolean getIsLadder(){
         return isLadder;
     }
 
-    /**
-     * 
-     * @param isLadder
-     */
+    
     public void setIsLadder(boolean isLadder){
         this.isLadder= isLadder;
     }
 
     /**
-     * 
+     * gets the tile type
+     * @return the type of tile
      */
     public String getTileType(){
         return this.tileType;
     }
 
     /**
-     * 
+     * sets the tile type
+     * @param tiletype
      */
     public void setTileType(String tileType){
         this.tileType = tileType;
